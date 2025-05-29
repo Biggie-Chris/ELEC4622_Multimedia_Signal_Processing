@@ -1,0 +1,19 @@
+>COLOR<v1.1<
+visual( 0.31270  0.32900) # Whitepoint for SRGB (D65)
+   0.64000  0.33000 # Red chromaticity coordinates for SRGB
+   0.30000  0.60000 # Green chromaticity coordinates for SRGB
+   0.15000  0.06000 # Blue chromaticity coordinates for SRGB
+affine
+ 0.0
+ 0.299 0.587 0.114
+ 0.0
+ -0.16874 -0.33126 0.50000
+ 0.0
+ 0.50000 -0.41869 -0.08131
+(0           1) # Y relative range
+(-0.5      0.5) # U relative range
+(-0.5      0.5) # V relative range
+bind(3)
+  1
+  2
+  3

@@ -1,0 +1,28 @@
+>COLOR<
+# First component: the linear spectral representation.
+visual(0.310 0.316) # Whitepoint of the NTSC RGB system
+  0.67 0.33         # Chromaticity of NTSC Red
+  0.21 0.71         # Chromaticity of NTSC Green
+  0.14 0.08         # Chromaticity of NTSC Blue
+# Second component: the pointwise composite colour map
+gamma
+  2.22 <0.099>      # Standard gamma map to obtain
+  2.22 <0.099>      # NTSC gamma-corrected R, G and B
+  2.22 <0.099>
+affine
+  0
+  0.299 0.587 0.114
+  0
+  -0.16875 -0.33126 0.5
+  0
+  0.5 -0.41869 -0.08131
+# Third component: the relative range specifiers
+(0.0 1.0)           # Y relative range
+(-0.5 0.5)          # U relative range
+(-0.5 0.5)          # V relative range
+# Fourth component: the image to colour plane bindings
+bind(3)
+1
+2
+3
+

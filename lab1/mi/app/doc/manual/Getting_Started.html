@@ -1,0 +1,1019 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>I</TITLE>
+</HEAD>
+<BODY LINK="#0000ff" VLINK="#800080">
+
+<OL TYPE="I">
+
+<LI><A NAME="_Toc407005510"><FONT FACE="Arial Black" SIZE=6>Getting Started</A></A></A></LI>
+<OL>
+
+<LI>><A NAME="_Toc407005511"></FONT><FONT FACE="Arial Black" SIZE=5>Installation</A></A></A></LI>
+<OL>
+
+<LI><A NAME="_Toc407005512"></FONT><FONT FACE="Arial Black" SIZE=4>Installation on a UNIX System</A></A></A></LI>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">The Media Interface software library currently supports only HPUX-10.2 and later operating systems.   To install the Media Interface software and development tools on a compatible HPUX platform, use the <B><I>ninstall</I> </B>command, as follows:</P>
+</FONT><FONT FACE="Courier" SIZE=2><P>ninstall -vh hplight.hpl.hp.com mi</P>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">You must have super-user privilege to do this.  If, for some reason, a suitable set of binaries cannot be obtained for a particular hardware platform, try downloading and compiling the source; the following <B><I>ninstall</B></I> command will place the source in the local directory, <B><I>./mi/</B></I>, which will be created if necessary:</P>
+</FONT><FONT FACE="Courier" SIZE=2><P>ninstall -vh hplight.hpl.hp.com mi.src</P>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">On UNIX systems, the following directory structure is established.</P>
+<B><I><P ALIGN="JUSTIFY">/opt/mi/bin</I> </B>-- Standard place for executables, including some Media Interface applications and the Media Interface pre-compiler.</P>
+<B><I><P ALIGN="JUSTIFY">/opt/mi/lib</I> – </B>Standard place for system shared and static libraries.</P>
+<B><I><P ALIGN="JUSTIFY">/opt/mi/include</I> – </B>Standard place for system include files.</P>
+<B><I><P ALIGN="JUSTIFY">/opt/mi/module_bin</I> – </B>Standard place for standalone executables built from individual modules.</P>
+<B><I><P ALIGN="JUSTIFY">/opt/mi/module_lib</I> – </B>Standard place for dynamically loadable module libraries.</P>
+<B><I><P ALIGN="JUSTIFY">/opt/mi/examples</I> – </B>Standard place for example source code.</P>
+<B><I><P ALIGN="JUSTIFY">/opt/mi/share/data</I> – </B>Some useful FLEX-formatted descriptors and a media file or two, containing complex representations.</P>
+<B><I><P ALIGN="JUSTIFY">/opt/mi/share/doc</I> – </B>Standard place for all documentation.  The top-level <B><I>index.html</B></I> file for all on-line documentation can be found here.</P>
+<P ALIGN="JUSTIFY">Once installation is complete, the <B><I>/opt/mi/bin</B></I> directory should be included in the target user's executable path.  It may be a good idea to add the <B><I>/opt/ii/module_bin</B></I> directory also.  In addition, the environment variable, <B>MI_MODULE_PATH</B>, should be set to refer to all directories to be searched for dynamically loadable module libraries.  The role of these module libraries will become clear shortly.  At a minimum, <B>MI_MODULE_PATH</B> should be set to the string, <B><I>/opt/mi/module_lib</B></I>.  Additional search directories must be separated by colons.  So, for example, including the following entry in the target user's <B><I>.cshrc</B></I> file, will cause three directories to be searched for module libraries, including the current directory:</P>
+</FONT><FONT FACE="Courier" SIZE=2><P>setenv MI_MODULE_PATH \ ".:/opt/mi/module_lib:/users/me/my_module_lib"</P>
+<LI><A NAME="_Toc407005513"></FONT><FONT FACE="Arial Black" SIZE=4>Installation on WIN32 Platforms</A></A></A></LI></OL>
+
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">The Media Interface software supports the popular WIN32 operating systems, Windows95 and Windows NT.  In fact, this is the only version which currently offers graphical functionality; of course, such functionality is invisible to module developers, who may find the UNIX platform more familiar for code development.  Installing the Media Interface software and development tools on a WIN32 platform is exceptionally simple.  There are only two steps: locate the installable components; and run the <B><I>setup.exe</B></I> program.  There are two ways to obtain the installable components:</P>
+<P ALIGN="JUSTIFY">If possible, map a network drive to the following location:</P>
+</FONT><FONT FACE="Courier" SIZE=2><P>\\hplframe\mi_install</P>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">2) Failing this, connect to the following location and retrieve the installation files, including the <B><I>setup.exe</B></I> program, which should then be executed on the local machine:</P>
+</FONT><FONT FACE="Courier" SIZE=2><P></FONT><A HREF="ftp://hpldst/hpl.hp.com"><FONT FACE="Courier" SIZE=2>ftp://hpldst.hpl.hp.com</FONT></A><FONT FACE="Courier" SIZE=2>/pub/outgoing/mi/win32</P>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">The <B><I>setup.exe</B></I> program is interactive and complies with Windows95 and Windows NT standards.  Installable components are organised into groups which may be individually selected during the installation process.  It should be obvious from the dialog controls, how you can skip over a component group or select a limited set of components from within a group of installable components, when performing a custom, rather than automatic installation.  The <B><I>setup.exe</B></I> program can be used as often as desired to install new components.  An <B><I>uninstall</I> </B>utility is installed along with the system components and may be readily accessed either via the &quot;Media Interface&quot; entry in the &quot;Start Menu&quot; or via the &quot;Add/Remove Programs&quot; item in the control panel.  The <B><I>uninstall</B></I> utility should be used to robustly remove previously installed components, groups of components or the entire Media Interface system.</P>
+<P ALIGN="JUSTIFY">Included in the development components group is a local copy of the <B><I>setup.exe</B></I> program, along with simple tools you can use to distribute your own modules and/or applications to WIN32-based users of the Media Interface system.  This is described further in Section II-4.3.</P>
+<P ALIGN="JUSTIFY">Assuming that you choose to install the system under <B><I>C:\mi\</B>,</I> the following directory structure is established.</P>
+<B><I><P ALIGN="JUSTIFY">C:\mi\bin</I> </B>-- Standard place for executables, including some Media Interface applications and the Media Interface pre-compiler.</P>
+<B><I><P ALIGN="JUSTIFY">C:\mi\lib</I> – </B>Standard place for <B><I>.lib</B></I> files needed to link against system libraries.</P>
+<B><I><P ALIGN="JUSTIFY">C:\mi\include</I> – </B>Standard place for system include files.</P>
+<B><I><P ALIGN="JUSTIFY">C:\mi\module_dlls</I> – </B>Standard place for dynamically loadable module libraries.</P>
+<B><I><P ALIGN="JUSTIFY">C:\mi\examples</I> – </B>Standard place for example source code.</P>
+<B><I><P ALIGN="JUSTIFY">C:\mi\data</I> – </B>Some useful FLEX-formatted descriptors and a media file or two, containing complex representations.</P>
+<B><I><P ALIGN="JUSTIFY">C:\mi\doc</I> – </B>Standard place for all documentation.  The top-level <B><I>index.html</B></I> file for all on-line documentation can be found here.</P>
+<B><I><P ALIGN="JUSTIFY">C:\mi\install</B></I>—Standard place for tools used to redistribute original and/or new modules, applications and other components to other WIN32-based users.</P>
+<P ALIGN="JUSTIFY">Directories containing console-based programs and Windows applications are automatically added to the system path, using the appropriate methods for Windows95 and Windows NT platforms.  Also, exactly as for UNIX, the <B>MI_MODULE_PATH</B> environment variable contains a list of default path names in which to search for Media Interface modules.  The path names may be separated either by colons, as in the UNIX case, or by semicolons, exactly as in WIN32 executable path lists.  Although the <B><I>setup.exe</I> </B>program automatically sets all relevant module path names into this variable, users may wish to manually add new directories in which their privately developed modules will reside.  This does not interfere with the operation of the install and uninstall applications mentioned above.  On Windows95 platforms, environment variables may be found in the <B>AUTOEXEC.BAT</B> file, whereas on Windows NT platforms they are best accessed through the system menu on the control panel.</P>
+<P ALIGN="JUSTIFY">&nbsp;</P>
+<LI><A NAME="_Toc407005514"><A NAME="_Toc408646699"></FONT><FONT FACE="Arial Black" SIZE=5>User-Space Tools</A></A></A></A></LI>
+<OL>
+
+<LI><A NAME="_Toc407005515"></FONT><FONT FACE="Arial Black" SIZE=4>Finding and Using Media Interface Modules</A></A></A></LI>
+<OL>
+
+<LI><A NAME="_Toc407005516"></FONT><B><FONT FACE="Arial" SIZE=3>Modules Supplied with the Media Interface Package</A></A></LI>
+</B><P ALIGN="JUSTIFY">A significant number of processing modules are distributed with the Media Interface software package to demonstrate its features and to provide some key utilities.  These are certainly not the only processing modules which are available at the time of this manual’s writing and it is likely that additional install sites will become available to distribute additional modules, as appropriate.  Some of the modules supplied with the software package are as follows:</P>
+<B><I><P ALIGN="JUSTIFY">cc_interp:</I> </B>Utility to interpolate and/or colour convert (CC) an image or video sequence.</P>
+<B><I><P ALIGN="JUSTIFY">cc_thumb:</I> </B>Utility to downscale (create THUMB-nails) and/or colour convert (CC) an image or video sequence.</P>
+<B><I><P ALIGN="JUSTIFY">compare_planes:</I> </B>Utility to compare the corresponding planes in corresponding streams extracted from descriptions appearing on two different input gateways, generating summary statistics of its findings.</P>
+<B><I><P ALIGN="JUSTIFY">crop_n_shuffle:</I> </B>Utility to crop, rotate and/or flip an image or video sequence.</P>
+<B><I><P ALIGN="JUSTIFY">decimate_planes:</B></I> Utility to apply different decimation factors to each plane or an image or video sequence.</P>
+<B><I><P ALIGN="JUSTIFY">dev_sim:</B></I> Utility to simulate physical imaging devices.</P>
+<B><I><P ALIGN="JUSTIFY">extract_plane:</B></I> Utility to extract a single image plane from an image or video sequence.</P>
+<B><I><P ALIGN="JUSTIFY">fork:</B></I> Forks each input descriptions into two copies, which are passed through two separate output gateways.  All description components are forked, including stream components.</P>
+<B><I><P ALIGN="JUSTIFY">gauss_quant:</I> </B>Utility to add Gaussian noise and quantize each plane or an image or video sequence.</P>
+<B><I><P ALIGN="JUSTIFY">illustrative_example:</B></I> Alters the saturation of image colours by scaling their chrominance bands.  This is the example discussed in Section II-5.</P>
+<B><I><P ALIGN="JUSTIFY">include_components:</I> </B>Utility to include new components into a description, deriving these components from FLEX-formatted text.</P>
+<B><I><P ALIGN="JUSTIFY">inspect:</B></I> Utility to inspect the contents of descriptions which flow across the module.</P>
+<B><I><P ALIGN="JUSTIFY">simple_example:</I> </B>This is the example discussed in Section II-3.</P>
+<P ALIGN="JUSTIFY">A variety of additional modules may or may not be widely distributed, depending upon intellectual property considerations.</P>
+<P ALIGN="JUSTIFY">The WIN32 distribution also comes with a general purpose viewing module, known as <B><I>view</B></I>.  It is launched by default, whenever the number of outputs supplied to the <B><I>mi_pipe</B></I> or <B><I>mi_pipe2</B></I> programs is smaller than the number of outputs produced by the processing pipelines they construct.  The <B><I>mi_viewer</B></I> application, which is automatically inserted into the current user’s &quot;Start Menu&quot; under the &quot;Media Interface&quot; program group, uses this module to implement a full-featured image and video viewer.  The viewing module supports variable height images and real-time display of video sequences, exploiting multi-threading techniques to provide an incremental display which runs concurrently with other processing modules in the system.  It may be included explicitly in any image or video processing system.</P>
+<LI><A NAME="_Toc407005517"><B>Using <I>mi_find</A></A></LI></OL>
+
+</B></I><P ALIGN="JUSTIFY">The <B><I>mi_find</B></I> program is a small utility that enables a user to search for Media Interface modules which are available as dynamically loadable libraries.  It uses the search keys exported via the modules’ access functions, as explained in Section II-3, in conjunction with one or more supplied search patterns and logical conjunctions to determine candidate processing modules.  Only those modules whose libraries can be located in one of the search directories specified by the <B>MI_MODULE_PATH</B> environment variable are considered.  <B><I>mi_find</B></I> is a console-driven utility, which is available on all platforms.  For a thorough usage statement, simply execute the utility without any arguments.  Below are some execution examples.</P>
+<P ALIGN="JUSTIFY">To find all modules which do something with colour, type:</P>
+</FONT><FONT FACE="Courier" SIZE=2><P>mi_find colo*</P>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">This will produce a list of all modules which export a key string containing one or more words with the prefix &quot;colo&quot;.  Unix shells typically attempt to expand the `*’ character in the above example, which is not the intent.  The usual way to avoid this is to enclose the entire string, &quot;colo*&quot;, in double quotes.  Unless otherwise, stated, all examples supplied here assume a DOS Prompt, rather than a UNIX shell. </P>
+<P ALIGN="JUSTIFY">To find all colour conversion modules you might try typing:</P>
+</FONT><FONT FACE="Courier" SIZE=2><P>mi_find "colo* conver*"</P>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">This will produce a list of all modules which export a key string containing at least one word with the prefix, &quot;colo&quot;, and one word with the prefix, &quot;conver&quot;.  The words may appear in any order within the matching key strings.  Note the use of double quotes to form a single string, containing the two word patterns, &quot;colo*&quot; and &quot;conver*&quot;.</P>
+<P ALIGN="JUSTIFY"> For a more lenient search, you could try typing:</P>
+</FONT><FONT FACE="Courier" SIZE=2><P>mi_find colo and conver</P>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">This will produce a list of all modules which export at least one key string containing a word with the prefix, &quot;colo&quot;, and one key string (potentially, but not necessarily the same one) containing a word with the prefix, &quot;conver&quot;.  Thus, the resulting modules have something to do with colour and something to do with conversion.</P>
+<P ALIGN="JUSTIFY">The following more complex search requests all modules which perform some kind of colour conversion task, but do not provide interpolation capabilities.</P>
+</FONT><FONT FACE="Courier" SIZE=2><P>mi_find "colo* conver*" and not interpolat*</P>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">As a final example, the following search returns the names of all modules</P>
+</FONT><FONT FACE="Arial Narrow" SIZE=2><P ALIGN="JUSTIFY">mi_find *</P>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">&nbsp;</P>
+<LI><A NAME="_Toc407005518"></FONT><FONT FACE="Arial Black" SIZE=4>Constructing Processing Pipelines</A></A></A></A></LI>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">The <B><I>mi_pipe</B></I> and <B><I>mi_pipe2</B></I> utilities are Media Interface application programs which may be used to dynamically construct processing pipelines from dynamically loadable modules.  Due to their similarity, we begin by discussing only <B><I>mi_pipe</B></I> and then explain the differences in command line usage between the two programs.  <B><I>mi_pipe</B></I> is a console-driven utility, which dynamically loads and connects processing modules, as they are specified on the command line.  It also parses and verifies each module’s arguments, which are also specified on the command line.  For a thorough usage statement, simply execute the program with no arguments.  We point out only a few key characteristics in this discussion.</P>
+<P ALIGN="JUSTIFY">The command line arguments  supplied to <B><I>mi_pipe</B></I> must be organised into several groupings.  Specific options to the <B><I>mi_pipe</B></I> utility itself must be specified first; these include the <B>–e</B>, <B>-s</B> and <B>–l</B> switches, which are rarely used, but worth knowing about.  The names of the processing modules for the pipeline must appear immediately after these options, followed by a special separator argument, consisting of two colons, i.e. &quot;::&quot;.  This is followed by any arguments required to configure the entire pipeline.  Examples of such arguments are the names of input or output files which might be involved as well as options such as <B>-memory_report</B>, <B>-pedantic</B>, and so on.  If the command line does not include a set of appropriate pipeline configuration arguments, a usage statement will be generated to indicate which arguments are appropriate for the pipeline configuration identified by the supplied module names.  Finally, for each module, in the pipeline, a double colon separator argument, &quot;::&quot;, must be supplied, followed by any special arguments for the individual module.  It is sufficient to supply any unique prefix for both pipeline configuration arguments and module arguments, which encourages module developers to use descriptive argument names, rather than single-character switches.  Finally, the special arguments, <B>-help</B>, <B>-about</B> and <B>-keys</B>, may be used at various points to obtain enhanced descriptions of argument usage, module functionality and other exported information.  These special arguments may not be abbreviated!!  We now present a few helpful examples.</P>
+<P ALIGN="JUSTIFY">To obtain a complete description of the <B><I>cc_thumb</B></I> module, type:</P>
+</FONT><FONT FACE="Courier" SIZE=2><P>mi_pipe cc_thumb :: -about</P>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">This produces a significant amount of text.  On WIN32 platforms, this text is arranged in its own window by default, with hypertext-like navigation capabilities.  On UNIX platforms, however, the text is given minimal formatting and sent to the standard error I/O stream by default.  The <B>–l</B> option may be used to redirect messages on both platforms to a file or to the standard output stream.   A more convenient method to peruse the information available for the <B><I>cc_thumb</B></I> module on a UNIX platform would be to type:</P>
+</FONT><FONT FACE="Courier" SIZE=2><P>mi_pipe -l - cc_thumb :: -about | more</P>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">To obtain a brief usage summary for a pipeline consisting only of the <B><I>cc_thumb</B></I> module, type:</P>
+</FONT><FONT FACE="Courier" SIZE=2><P>mi_pipe cc_thumb ::</P>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">For more information on specific arguments for both the overall pipeline and the <B><I>cc_thumb</B></I> module, type:</P>
+</FONT><FONT FACE="Courier" SIZE=2><P>mi_pipe cc_thumb :: -help</P>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">To process the example digitial camera image supplied with the Media Interface package, try typing:</P>
+</FONT><FONT FACE="Courier" SIZE=2><P>mi_pipe cc_thumb :: -i /opt/mi/share/data/test_image.flex -o out.ppm \<BR>
+-format pnm :: -dec 2 2 -col /opt/mi/share/data/srgb_space -sat -ill D65</P>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">The backslash character appearing in the above command is used only to signify line continuation, meaning that the return key should not be pressed between the lines of this or any of the following command line examples.  Notice that the pipeline configuration arguments, in this case, include the names of an input and an output file, as well as a specification for the format to be used in writing the output file.  Unless explicitly specified, any output files will be written using the MFLEX format, which is described in Section III-8; this is the only file format which is capable of completely externalising Media Interface descriptions.  The Media Interface system library does not actually implement any file formats whatsoever.  Instead, specific formats, including MFLEX, are all implemented by individual modules, which are dynamically located and invoked by the general purpose <B><I>read_file</B></I> and <B><I>write_file</B></I> modules.  To determine what file reading and writing modules are available on your system, try typing:</P>
+</FONT><FONT FACE="Courier" SIZE=2><P>mi_find read_file_* or write_file_*</P>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">The <B><I>mi_pipe</B></I> program implicitly invokes one or more copies of the <B><I>read_file</B></I> and/or <B><I>write_file</B></I> modules in order to manage pipeline inputs and outputs, passing the names and formats of files supplied on the command line as arguments to these modules.  Of course, there is no reason why these modules cannot be specified explicitly.  Thus, for example, the above pipeline could be equivalently constructed using the following command:</P>
+</FONT><FONT FACE="Courier" SIZE=2><P>mi_pipe read_file cc_thumb write_file -fil /opt/mi/share/data/test_image.flex :: -dec 2 2 -col /opt/mi/share/data/srgb_space -sat -ill D65 :: -fil out.ppm -format pnm</P>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">On UNIX platforms, file names may be replaced with a single dash, `-‘, in order to signify standard input or standard output, as appropriate, as illustrated in the following example:</P>
+</FONT><FONT FACE="Courier" SIZE=2><P>mi_pipe cc_thumb :: -i /opt/mi/share/data/test_image.flex -o - -format pnm \<BR>
+:: -dec 2 2 -col /opt/mi/share/data/srgb_space -sat -ill D65 | xv -</P>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">On WIN32 platforms, the output destination can be eliminated altogether, in which case the <B>view</B> module, mentioned at the end of Section II-2.1.1, will automatically be launched to render any outputs which are not directed to files.  Currently, this module only supports image and video stream rendering, so all other media types will be lost unless the output is explicitly directed to an MFLEX file.  To check this behaviour out, try typing the following command, which also produces a larger image:</P>
+</FONT><FONT FACE="Courier" SIZE=2><P>mi_pipe cc_thumb :: -i C:\mi\images\test_image.flex :: \<BR>
+-col C:\mi\data\srgb_space -sat -ill D65</P>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">Notice that the viewing module updates the display incrementally as the image is processed.  In fact, full functionality, including zooming, scrolling, inspecting pixel values and so forth, is all available while the image is being generated.  The viewing module can also be explicitly included in the pipeline, exposing a collection of optional arguments.  Try typing:</P>
+</FONT><FONT FACE="Courier" SIZE=2><P>mi_pipe cc_thumb view :: -i C:\mi\images\test_image.flex :: \<BR>
+-col C:\mi\data\srgb_space -sat -ill D65 :: -wid 450</P>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">To find out more about just the <B><I>view</B></I> module, include the <B>–help</B> or <B>–about</B> arguments in  the section where private arguments for that module would normally be supplied.  As a simple example, type:</P>
+</FONT><FONT FACE="Courier" SIZE=2><P>mi_pipe cc_thumb view :: -i C:\mi\images\test_image.flex :: \<BR>
+-col C:\mi\data\srgb_space -sat -ill D65 :: -wid 450 -help</P>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">Notice that the supplied arguments and the <B><I>cc_thumb</B></I> module are all ignored in this case.  If the <B>–help</B> argument had been included in the argument section for <B><I>cc_thumb</B></I>, help information would have been supplied for this module instead.  This usage of the <B>–help</B> argument is convenient since it enables argument descriptions to be obtained at any point while editing a set of command line arguments.</P>
+<P ALIGN="JUSTIFY">It is now time to consider some more serious pipelines.  The following example uses <B><I>cc_thumb</B></I> to construct a well-defined colour image from out raw digital camera image,  supplying this image to <B><I>dev_sim</B></I>, which uses spectral reflectance statistics to estimate the spectral properties of the scene represented by its input image and then simulate the response of a hypothetical CMYG imaging device to this scene.  The simulated image is passed to <B><I>gauss_quant</B></I> which adds some Gaussian noise and simulates a 7-bit analogue to digital converter, after which the general purpose interpolation utility, <B><I>cc_interp</B></I>, reconstructs an interpolated image, which has been colour and illuminant corrected.  Of course, the original digital camera image is not a particularly good source of information for scene simulation, but it  does allow us to demonstrate a more interesting pipeline without supplying additional imagery with the installation package; ideally, we would start with an image with as many colour components as possible, or at least a high quality RGB image (the simulator response appropriately to all types of source imagery, from monochrome through to hyperspectral).</P>
+</FONT><FONT FACE="Courier" SIZE=2><P>mi_pipe cc_thumb dev_sim gauss_quant cc_interp :: \<BR>
+-i C:\mi\images\test_image.flex :: -sat :: \<BR>
+-prop C:\mi\data\prop_cmyg -dec 4 4 -ill F12 -ref C:\mi\data\vrhel_stats :: \<BR>
+-psnr 40 -bits 7 :: \<BR>
+-col SRGB -ill D65 -exp 2 2</P>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">For a fuller understanding of the complex functionality embodied in this pipeline, the reader should refer to the descriptions of each module, which may be obtained using the <B>–about</B> argument, as described earlier.  It is also worthwhile taking a look at the content of the descriptions which flow through the pipeline by inserting one or more instances of the <B><I>inspect</B></I> module.  For a detailed explanation of he FLEX-formatted descriptors displayed by the <B><I>inspect</B></I> module, the reader is referred to the FLEX manual, which may be found in the postscript file, <B><I>C:\mi\doc\flex.ps</B></I> on WIN32 platforms and <B><I>/opt/mi/share/doc/flex.ps</B></I> on UNIX systems.  The same material is covered in Section III-8 of this manual; however, this section may not have been completed by the time of the manual’s initial release.</P>
+<P ALIGN="JUSTIFY">If the more sophisticated digital camera reconstruction module, <B><I>gide</B></I>, was supplied with the Media Interface distribution, try replacing <B><I>cc_interp</B></I> with <B><I>gide</B></I>, as follows:</P>
+</FONT><FONT FACE="Courier" SIZE=2><P>mi_pipe cc_thumb dev_sim gauss_quant gide :: \<BR>
+-i C:\mi\images\test_image.flex :: -sat :: \<BR>
+-prop C:\mi\data\prop_cmyg -dec 4 4 -ill F12 -ref C:\mi\data\vrhel_stats :: \<BR>
+-psnr 40 -bits 7 :: \<BR>
+-col SRGB -ill D65 -exp 2 2 -ref C:\mi\data\vrhel_stats</P>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">The <B><I>mi_pipe</B></I> and <B><I>mi_pipe2</B></I> utilities provide identical functionality, but adopt a slightly different command line syntax.  Many users will find the <B><I>mi_pipe2</B></I> syntax more convenient.  As an example, the <B><I>mi_pipe2</B></I> syntax for the above pipeline is</P>
+</FONT><FONT FACE="Courier" SIZE=2><P>mi_pipe2 -i C:\mi\images\test_image.flex :: cc_thumb -sat :: \<BR>
+dev_sim -prop C:\mi\data\prop_cmyg -dec 4 4 -ill F12 \<BR>
+-ref C:\mi\data\vrhel_stats :: gauss_quant -psnr 40 -bits 7 :: \<BR>
+gide -col SRGB -ill D65 -exp 2 2 -ref C:\mi\data\vrhel_stats</P>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">A thorough usage statement for the <B><I>mi_pipe2</B></I> utility may be obtained by executing it without any arguments.</P>
+<P ALIGN="JUSTIFY">As our final example, try entering the following command on a WIN32 platform:</P>
+</FONT><FONT FACE="Courier" SIZE=2><P>mi_pipe2 -i C:\mi\images\test_image.flex :: cc_thumb -sat :: \<BR>
+fork :: cc_thumb -col SRGB -ill D65 :: fork :: extract_plane -p 1 :: \<BR>
+fork :: cc_interp -exp 2 1</P><IMG SRC="Image2.gif" WIDTH=558 HEIGHT=55 ALIGN="LEFT" HSPACE=12>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">This command causes a total of four instances of the <B><I>view </B></I>module to be launched, to display all the otherwise uncommitted module outputs.  One additional output is produced by each of the <B><I>fork</B></I> modules, in addition to the final pipeline output, as illustrated in Figure 2.  This is an example of what we might call a spiny pipeline.  In general, any module which requires  more input gateways than the maximum number of output gateways offered by the previous module, must obtain its additional inputs from files, specified as inputs to the overall pipeline.  Similarly, any module which requires more output gateways than the succeeding module is prepared to consume, must deliver its additional outputs to files (or instances of the <B><I>view</B></I> module on WIN32 platforms), as specified in the pipeline arguments section of the command line.   Try using the <B><I>compare_planes</B></I> module to generate a spiny pipeline which has additional inputs along its backbone.</P>
+<P ALIGN="JUSTIFY">Before concluding this section, it is worth pointing out that <B><I>mi_pipe</B></I> and <B><I>mi_pipe2</B></I> are nothing but simple application programs which use the Media Interface system library.  Neither the Media Interface system itself, nor any of the processing modules,  are restricted to simple pipeline topologies, command line arguments, or any of the other specific constraints associated with these programs.  In fact, it is even possible to construct systems in which a module might read data from its own output, either indirectly or via a processing chain consisting of other modules, none of which were specifically designed for that purpose.  The <B><I>iterative_example</B></I> module, whose source code appears in <B><I>C:\mi\ansi_c_examles\iterative_example</B></I> (<B><I>/opt/mi/ansi_c_examples/iterative_example</B></I> on UNIX platforms), shows how modules can be loaded, configured and launched with cyclic topologies of this form.</P>
+<P ALIGN="JUSTIFY">&nbsp;</P>
+<LI><A NAME="_Toc407005519"></FONT><FONT FACE="Arial Black" SIZE=4>Configuring Processing Modules Interactively</A></A></A></A></LI></OL>
+
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">The Media Interface library provides several high level functions to allow rapid construction of applications, in which an interactive user can search for a dynamically loadable module, scan the information exported by such modules, set module arguments and parameters and launch the module.  Part of the functionality offered by these powerful functions can be demonstrated from the <B><I>view</B></I> module, which may itself be launched from the <B><I>mi_viewer</B></I> application installed in the &quot;Media Interface&quot; program group on a WIN32 platform’s &quot;Start Menu&quot;.  Try using this application to view the example digital camera image supplied with the Media Interface installation package (i.e. <B><I>C:\mi\images\test_image.flex</B></I>).  Since this image does not have a representation which is immediately suitable for viewing, the <B><I>view</B></I> module itself displays a dialog box, indicating the need to pre-process the image.  If the &quot;No&quot; option is selected, a new dialog box appears which contains a list of all modules on the default load path, as specified by the <B>MI_MODULE_PATH</B> environment variable, which are able to accept a single input gateway and send descriptions to a single output gateway.  Search expressions may be supplied to narrow the list, based on key strings exported by the various modules.   Search expressions have the same form as those accepted by the <B><I>mi_find</B></I> program, discussed in Section II-2.1.2.</P>
+<P ALIGN="JUSTIFY">Once a module has been selected, with or without involving one or more searches in this process, another dialog box is presented, allowing the user to interactively set arguments for the module.  This dialog box automatically verifies arguments and argument combinations and greys out irrelevant arguments, based on the information exported by the relevant module’s access function.  It also provides help information on each of the individual arguments, as well as module descriptive information, all of which are accessible via obvious means.</P>
+<P ALIGN="JUSTIFY">As a simple example, try selecting the <B><I>cc_thumb</B></I> module and providing no arguments (all arguments for this module are optional).  The image may be further processed by selecting the &quot;process&quot; item from the display’s &quot;Actions&quot; menu.  The `mi_process’ application, which you can find in the &quot;Media Interface&quot; program group on a WIN32 system’s &quot;Start Menu&quot;, provides further demonstration of these interactive capabilities.  The best way to appreciate these features is by experimentation.</P>
+<P ALIGN="JUSTIFY">&nbsp;</P>
+<LI><A NAME="_Toc407005520"></FONT><FONT FACE="Arial Black" SIZE=5>A Simple Example Module</A></A></A></A></LI>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">In this section we work through the source code for a particularly simple processing module, which does nothing but image copying.  Of course, this is a completely useless activity and should be avoided even in processing modules which need to reproduce their input at their output from time to time, since physical copying is generally avoidable.  However, the example is useful because it is sufficiently simple to grasp quickly and it provides a framework which can be easily modified for the purpose of migrating many conventional prototype image processing programs into the Media Interface framework.  The example is implemented in ANSI C; however, a native C++ implementation may be found in <B><I>C:\mi\c_plus_plus_examples\simple_example </B></I>on WIN32 platforms, or <B><I>/opt/mi/c_plus_plus_examples/simple_example</B></I> on UNIX platforms.  For variety, the example of Section II-5 is shown using a native C++ implementation, but readers unfamiliar with C++ should have no trouble following the example.  We make negligible effort, either here or in Section II-5, to describe how modules may be implemented in languages other than C or C++ and defer such discussion to Section III-1.</P>
+<OL>
+
+<LI><A NAME="_Toc407005521"></FONT><FONT FACE="Arial Black" SIZE=4>Exporting the Access Function</A></A></A></A></LI>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">In this example and others supplied with the standard Media Interface installation package, we adopt a particular organisation which is strongly recommended for all module developers.  In particular, although it is often unnecessary, we always provide a header file with each module, which declares the module’s access function.  The following code fragment contains the header file for our <B><I>simple_example</B></I> module.</P>
+</FONT><FONT FACE="Courier" SIZE=2><P>/* =========================   SIMPLE_EXAMPLE.H    ========================= */<BR>
+<BR>
+#ifndef SIMPLE_EXAMPLE_H<BR>
+#define SIMPLE_EXAMPLE_H<BR>
+#include &lt;mi_std.h&gt;<BR>
+<BR>
+extern MI_EXPORT void<BR>
+  simple_example_access(mi_module_ptr who_calls, mi_module_access_ptr access);<BR>
+#endif</P>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">Every dynamically loadable module must provide a single access function which is used to obtain information exported by the module.  Moreover, this is the only function which needs to be visible outside the module’s library.  The access function does not perform any processing itself, but it does advertise the method used to invoke the module’s main processing entry-point function.   The reason for providing a separate header file to declare the access function is that this makes it easier for applications and other modules to bind to the module library statically, even though dynamic binding is much more common and flexible.  To facilitate robust dynamic binding, the name of the access function cannot be arbitrary.  On the other hand, to facilitate static binding, we would like each module to have a unique access function name.  As a compromise, we insist that each module’s access function be related to the library file’s base name in a manner which is most easily explained by example.  In the case of our <B><I>simple_example</B></I> module, the library file has the name, <B><I>&quot;simple_example.dll&quot; </B></I>(on WIN32 platforms) or <B><I>&quot;simple_example.sl&quot;</B></I> (on UNIX platforms); in either case, the base name is <B><I>&quot;simple_example&quot;</B></I>.  The access function must then have one of the names:</P>
+<B><I><P ALIGN="JUSTIFY">&quot;_access&quot;;</P>
+<P ALIGN="JUSTIFY">&quot;example_access&quot;;</B></I> or</P>
+<B><I><P ALIGN="JUSTIFY">&quot;simple_example_access&quot;.</P>
+</B></I><P ALIGN="JUSTIFY">More generally, the access function’s name must be formed by appending the suffix<B><I>, &quot;_access&quot;</B></I>, to a prefix formed from the library file’s base name.  Legal prefixes are:</P>
+<P ALIGN="JUSTIFY">the empty string;</P>
+<P ALIGN="JUSTIFY">the entire library file’s base name; or</P>
+<P ALIGN="JUSTIFY">any leading prefix of the library file’s base name which terminates immediately prior to an underscore character in the base name.</P>
+<P ALIGN="JUSTIFY">This convention is motivated primarily by the fact that in some circumstances it is desirable to have multiple versions of the same module compiled into different library files.  For example, a simple compilation directive might be used to control whether or not a module is compiled with extra debugging code, or with different computational precision.  The library files for all such versions of the same module can co-exist, with the same access function name, provided the library file base names all build on a root name by adding suffices, separated by the underscore character.  Thus, compiling out <B><I>simple_example</B></I> module in debug mode and naming the library file <B><I>simple_example_dbg</B></I> will create no difficulties.</P>
+<P ALIGN="JUSTIFY">Apart from the naming convention rule outlined above, the only other point to notice from the above code fragment is the use of the macro, <B>MI_EXPORT</B>, in the access function’s declaration.  This macro is used to wrap up any compiler-specific declarators which are required to identify the fact that this function is to be exported by the module library.  If this recommended separate header file is not used, the <B>MI_EXPORT </B>macro must be explicitly included in the source code where the access function is defined.</P>
+<LI><A NAME="_Toc407005522"></FONT><FONT FACE="Arial Black" SIZE=4>Implementing the Access Function</A></A></A></A></LI>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">The code fragment shown below contains implements of the access function declared in <B><I>simple_example.h. </B></I> Within the Media Interface framework, functions fall into two categories: functions which belong to the interface for some object; and functions which are not associated with any particular object.  Functions in the first category must take a pointer to the object itself, followed by a pointer to the <I>`mi_module’</I> object (usually named <B>who_calls</B>) which identifies the calling module, and then any additional arguments which are required by the function.  By convention, functions in the second category will take a pointer to the <I>`mi_module’</I> object which identifies the calling module as their first argument; however, this is not mandatory.  In accordance with this convention, the access function takes the <B>who_calls</B> argument which identifies the module which is requesting exported information from the module at hand, followed by a pointer to the <I>`mi_module_access’ </I> object, with which the access function must interact in order to export all relevant information.</P>
+</FONT><FONT FACE="Courier" SIZE=2><P>/*****************************************************************************/<BR>
+/*                           simple_example_access                           */<BR>
+/*****************************************************************************/<BR>
+void<BR>
+  simple_example_access(mi_module_ptr who_calls, mi_module_access_ptr access)<BR>
+<BR>
+ /* This is the only function which needs to be (and ideally should be)<BR>
+    visible to the outside world.  The module which launches us will first<BR>
+    invoke this function to obtain any information exported by the module<BR>
+    and also to pick up the entry-point function for the processing part of<BR>
+    the module, which we install into the `access' object here.  Note that<BR>
+    `who_calls' identifies the module which is requesting information; it<BR>
+    is not the simple example module itself. */<BR>
+{<BR>
+  static mi_string args[] = {NULL};<BR>
+  static mi_string keys[] = {"copy","example",NULL};<BR>
+  static mi_string description =<BR>
+    "\t11. Synopsis\n\n"<BR>
+    "Copies pictures from an input image stream to its output, using 16-bit "<BR>
+    "short integers as the intermediate representation precision for each "<BR>
+    "image sample value.\n\n"<BR>
+    "\t12. Author\n\n"<BR>
+    "David Taubman (HP Labs)\n"<BR>
+    "\t  Telnet: 857-3432\n"<BR>
+    "\t  Email:  taubman@hpl.hp.com\n\n";<BR>
+<BR>
+  mi_install_vfunc(who_calls,(mi_object_ptr) access,<BR>
+                   MI_MODULE_ACCESS__REPLACEABLE__SIGN,<BR>
+                   (mi_vfunc_func) simple_example_module);<BR>
+ mi_module_access__set_version(access,who_calls,MI_VERSION);<BR>
+  mi_module_access__set_inputs(access,who_calls,1);<BR>
+  mi_module_access__set_outputs(access,who_calls,1);<BR>
+  mi_module_access__set_name(access,who_calls,"simple_example");<BR>
+  mi_module_access__set_argument_descriptions(access,who_calls,args);<BR>
+  mi_module_access__set_keys(access,who_calls,keys);<BR>
+  mi_module_access__set_module_description(access,who_calls,description);<BR>
+}</P>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">For a thorough explanation of the <I>`mi_module_access’</I> object, the reader is referred to the on-line HTML documentation which comes with the Media Interface install package.  For our purposes here, it is sufficient to observe the following points.  Firstly, the<I> `mi_create_module_access’ </I>function, which the calling module used to create an the object passed into this function via its <B>access</B> argument, leaves one function in the object’s interface uninitialised --- the <I>`mi_module_access__replaceable’</I> function.  As explained in the on-line documentation, this is the module’s processing entry-point function.  The access function is expected to install this function into the access object’s interface itself, using the <I>`mi_install_vfunc’</I> function.  The location and signature of the entry-point function are identified by well-defined macros.   <I>`mi_install_vfunc’</I> is, in fact, the only Media Interface function which is either accepts or returns the address of a function and so this is the only function which needs to be separately implemented in order to support languages, such as Java, which do not allow the address of a function to be taken or which do not even have the binary equivalent of a function whose address could be taken.  The Media Interface object model even allows interpretive languages to install an appropriate entry-point function here; however, we refer the reader to Section III-1 for further information on this.</P>
+<P ALIGN="JUSTIFY">The second point which we wish to make here is that although there is considerable flexibility in the amount of information which a module can choose to export via its access function, it is good practice to export the following:</P>
+<P ALIGN="JUSTIFY">the version of the Media Interface library against which the module was originally compiled;</P>
+<P ALIGN="JUSTIFY">the minimum number of input and output gateways supported by the module;</P>
+<P ALIGN="JUSTIFY">a consistent name which can be used to identify the module at run-time, regardless of whether it was dynamically or statically loaded;</P>
+<P ALIGN="JUSTIFY">definitions and help information for all arguments accepted by the module;</P>
+<P ALIGN="JUSTIFY">a reasonable set of search keys which may be used to locate the module within a potentially very large database;</P>
+<P ALIGN="JUSTIFY">a textual description of the module.</P>
+<P ALIGN="JUSTIFY">This information is exported by invoking the relevant functions of the <I>`mi_module_access’</I> object’s interface.  Information may be copied into the access object; however, whenever this information can be statically determined at compile time, it is more efficient to pass references to static data into the relevant functions.  If copying is required, the <I>`mi_module_access__set_copy_mode’</I> function must be invoked at some point; however, this is not the default and is rarely required in C or C++ implementations.  On the other hand, without copying, the <B>static</B> modifier is absolutely essential in the declarations of the <B>args</B>, and <B>keys</B> arrays in the above code fragment.</P>
+<P ALIGN="JUSTIFY">Before concluding this section, it is worth noting that the description string supplied to <I>`mi_module_access__set_module_description’ </I>will be formatted automatically whenever a description of the module needs to be rendered to some target messaging service.  Line breaking is performed when rendering the description and should not be hard-coded with new-line characters.  New-line characters may still be used when a forced line break is required.  Tab characters are legal only as the first character in the entire string or immediately following a new-line character.  When followed by a digit in the range 0 through 9, they indicate that the ensuing text, up until the next new-line character, represents a title.  Otherwise, the number of spaces which follow the tab character determines the amount of extra indenting to be applied to all formatted text, until the next new-line character is encountered.  Level 0 titles are to be used for major headings, while higher level numbers should be used for sections, sub-sections and so on. Using these simple formatting commands, it is possible to export a substantial and readable description of the module’s behaviour, as may be verified by executing the <B><I>mi_pipe</B></I> utility with the <B>–about</B> argument and the name of a moderately complex module such as <B><I>dev_sim</B></I> or <B><I>cc_interp</B></I>.  It is also important to be aware of the fact that the percent character, `%’, carries special significance.  To obtain a regular `%’ character, two percent characters must be inserted into the string in succession, exactly as for the standard ANSI C <I>printf</I> function.  For a full description of the formatting controls which are available, the reader is referred to the on-line documentation for the <I>`mi_messaging__printf’</I> function, which is used to render these strings to particular messaging service objects, as needed.</P>
+<LI><A NAME="_Toc407005523"></FONT><FONT FACE="Arial Black" SIZE=4>Implementing the Entry-Point Function</A></A></A></A></LI></OL>
+
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">The following code fragment contains the remainder of the source code for the <B><I>simple_example</B></I> module.   The code consists of two functions: the entry-point function, <I>`simple_example_module’</I>; and a worker function<I>, `transfer_picture’</I>.   Media Interface modules which are implemented in ANSI C will often need only to include the master header file, <B><I>mi_std.h.  </B></I>This header provides access to all objects and functions exported by the main system library.</P>
+</FONT><FONT FACE="Courier" SIZE=2><P>/* =========================   SIMPLE_EXAMPLE.C    ========================= */<BR>
+<BR>
+#include &lt;mi_std.h&gt;<BR>
+#include &lt;assert.h&gt;<BR>
+#include "simple_example.h"<BR>
+<BR>
+/*****************************************************************************/<BR>
+/* STATIC                    transfer_picture                                */<BR>
+/*****************************************************************************/<BR>
+<BR>
+static void<BR>
+  transfer_picture(mi_module_ptr who_calls, mi_picture_ptr in_pic,<BR>
+                   mi_picture_ptr out_pic, mi_uint cols, mi_uint planes)<BR>
+<BR>
+ /* This is by no means the most efficient way of copying data from one<BR>
+    picture to another (see, e.g. `mi_frame__transfer_input_buffers_to_output',<BR>
+    but it demonstrates the most elementary I/O methods which you will<BR>
+    probably use to convert existing image processing programs into Media<BR>
+    Interface modules.  To add a little interest, the transfer works on<BR>
+    blocks of four rows at a time, which are managed by a dynamically<BR>
+    allocated buffer. */<BR>
+<BR>
+{<BR>
+  mi_short **in, **out, *ip, *op;<BR>
+  mi_uint num, n, row_elts, k;<BR>
+<BR>
+  row_elts = cols*planes;<BR>
+  in = (mi_short **) mi_alloc(who_calls,NULL,MI_TYPE_ARRAY,4);<BR>
+  out = (mi_short **) mi_alloc(who_calls,NULL,MI_TYPE_ARRAY,4);<BR>
+  while ((num = mi_picture__open_input_buffers(in_pic,who_calls,<BR>
+                                               (void **) in,0,4)) != 0)<BR>
+    {<BR>
+      mi_picture__open_output_buffers(out_pic,who_calls,(void **) out,0,num);<BR>
+      for (n=0; n &lt; num; n++)<BR>
+        for (ip=in[n], op=out[n], k=row_elts; k &gt; 0; k--)<BR>
+          *(op++) = *(ip++);<BR>
+      mi_picture__close_output_buffers(out_pic,who_calls,(void **) out,0,num);<BR>
+      mi_picture__close_input_buffers(in_pic,who_calls,(void **) in,0,num);<BR>
+    }<BR>
+  mi_free(who_calls,in);<BR>
+  mi_free(who_calls,out);<BR>
+}<BR>
+<BR>
+/*****************************************************************************/<BR>
+/* STATIC                  simple_example_module                             */<BR>
+/*****************************************************************************/<BR>
+static void<BR>
+  simple_example_module(mi_module_access_ptr access, mi_uint vidx,<BR>
+                        mi_module_ptr who_calls,<BR>
+                        mi_input_gateway_list_ptr inputs,<BR>
+                        mi_output_gateway_list_ptr outputs,<BR>
+                        mi_module_arguments_ptr args)<BR>
+<BR>
+ /* This is the module's processing entry-point function.  The `who_calls'<BR>
+    module passed in here is the module which was created by the caller<BR>
+    explicitly to perform the processing steps. */<BR>
+{<BR>
+  mi_uint cols, rows, planes, p;<BR>
+  mi_description_ptr description;<BR>
+  mi_gateway_ptr in_gate, out_gate;<BR>
+  mi_component_ptr in_comp, out_comp;<BR>
+  mi_image_ptr in_image, out_image;<BR>
+  mi_picture_ptr in_pic, out_pic;<BR>
+  mi_string image_key;<BR>
+<BR>
+  /* Get input gateway, description and image stream. */<BR>
+<BR>
+  in_gate = mi_input_gateway_list__get_gateway(inputs,who_calls,0);<BR>
+  description = mi_gateway__receive_description(in_gate,who_calls,MI_FALSE);<BR>
+  in_comp =<BR>
+    mi_description__acquire_component(description,who_calls,"*",<BR>
+                                      MI_IMAGE__CCLASS,NULL,NULL,MI_FALSE);<BR>
+  if (in_comp == NULL)<BR>
+    mi_module__error(who_calls,who_calls,<BR>
+                     "No image stream available at input!");<BR>
+  image_key = mi_component__get_key(in_comp,who_calls);<BR>
+  in_image = (mi_image_ptr) mi_component__get_object(in_comp,who_calls);<BR>
+<BR>
+  /* Get image dimensions. */<BR>
+<BR>
+  rows = mi_image__get_height(in_image,who_calls);<BR>
+  cols = mi_image__get_width(in_image,who_calls);<BR>
+  planes = mi_image__get_planes(in_image,who_calls);<BR>
+<BR>
+  /* Open input image, set input precision and remove image component from<BR>
+     description. */<BR>
+<BR>
+  if (!mi_image__start_reading(in_image,who_calls))<BR>
+    mi_module__error(who_calls,who_calls,"Image stream, \"%s\", has no data!",<BR>
+                     image_key);<BR>
+  mi_image__set_input_precision(in_image,who_calls,MI_TYPE_SHORT);<BR>
+  mi_component__unlink(in_comp,who_calls);<BR>
+<BR>
+  /* Create output image, get output gateway, and send modified description<BR>
+     across output gateway. */<BR>
+<BR>
+  out_comp = mi_create_component(who_calls,MI_IMAGE__CCLASS,image_key,NULL);<BR>
+  out_image = (mi_image_ptr) mi_component__get_object(out_comp,who_calls);<BR>
+  mi_image__set_height(out_image,who_calls,rows);<BR>
+  mi_image__set_width(out_image,who_calls,cols);<BR>
+  mi_image__set_planes(out_image,who_calls,planes);<BR>
+  mi_image__set_output_precision(out_image,who_calls,MI_TYPE_SHORT);<BR>
+  for (p=0; p &lt; planes; p++)<BR>
+    {<BR>
+      float min, max;<BR>
+<BR>
+      mi_image__get_input_nominal_range(in_image,who_calls,p,&amp;min,&amp;max);<BR>
+      mi_image__set_output_nominal_range(out_image,who_calls,p,min,max);<BR>
+    }<BR>
+  mi_component__link(out_comp,who_calls,description,MI_FALSE);<BR>
+  out_gate = mi_output_gateway_list__get_gateway(outputs,who_calls,0);<BR>
+  mi_gateway__send_description(out_gate,who_calls,description,MI_FALSE);<BR>
+<BR>
+  /* Read and write pictures until done. */<BR>
+<BR>
+  while ((in_pic = mi_image__open_input_picture(in_image,who_calls)) != NULL)<BR>
+    {<BR>
+      if ((out_pic = mi_image__open_output_picture(out_image,who_calls,<BR>
+                                                   0,0)) != NULL)<BR>
+        {<BR>
+          transfer_picture(who_calls,in_pic,out_pic,cols,planes);<BR>
+          mi_picture__finish_writing(out_pic,who_calls);<BR>
+        }<BR>
+      mi_picture__finish_reading(in_pic,who_calls);<BR>
+      if (out_pic == NULL)<BR>
+        break; /* No point in continuing. */<BR>
+    }<BR>
+<BR>
+  /* Finish up. */<BR>
+<BR>
+  mi_image__finish_reading(in_image,who_calls);<BR>
+  mi_image__finish_writing(out_image,who_calls);<BR>
+}</P>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">The module’s entry-point function, <I>`simple_example_module’</I>, implements the <I>`mi_module_access__replaceable’</I> function in the <I>`mi_module_access’</I> object’s interface, as explained in Section II-3.2.  The function accepts six arguments and has no return value.  In the event of failure, the module has only to invoke the <I>`mi_module__exit’</I> function, either directly or indirectly via <I>`mi_module__error’</I>, rather than returning with an error code.  The first three arguments must be supported by the implementation of all interface functions to Media Interface objects.  The six arguments have the following interpretation:</P>
+<B><P ALIGN="JUSTIFY">access:</B> this is a pointer to the <I>`mi_module_access’</I> object into whose interface the entry-point function was installed.  It may be used to launch a new instance of the same module, to retrieve information exported by the access function, or to recover private initialization information, but it is generally used only in relatively advanced modules.</P>
+<B><P ALIGN="JUSTIFY">vidx: </B>identifies the location of the entry-point function within the <B>access</B> object’s interface.  This is rarely if ever used in C or C++ implementations, but provides essential information when implementing an entry-point function in an interpretative language.</P>
+<B><P ALIGN="JUSTIFY">who_calls: </B>this is a pointer to the <I>`mi_module’</I> object which identifies the module itself.  It is to be passed into virtually all Media Interface functions invoked from within the module in order to identify the execution context and facilitate garbage collection and graceful degradation in the event of failure.</P>
+<B><P ALIGN="JUSTIFY">inputs: </B>this is a pointer to an <I>`mi_input_gateway_list’</I> object, from which the module’s input gateways may be recovered.</P>
+<B><P ALIGN="JUSTIFY">outputs: </B>this is a pointer to an <I>`mi_output_gateway_list’</I> object, from which the module’s output gateways may be recovered.</P>
+<B><P ALIGN="JUSTIFY">args: </B>this is a pointer to an <I>`mi_module_arguments’</I> object, from which any arguments supplied to the module may be recovered.</P>
+<P ALIGN="JUSTIFY">Rather than giving a blow-by-blow description of the statements appearing in the above code fragment, we discuss only a few salient features here.  For more information, the reader is referred to the on-line HTML documentation which offers much more comprehensive information than we could hope to reproduce here.   The <I>simple_example</I> module performs the following operations:</P>
+<P ALIGN="JUSTIFY">retrieves its sole input gateway from the <B>inputs</B> list;</P>
+<P ALIGN="JUSTIFY">receives a single description via this gateway;</P>
+<P ALIGN="JUSTIFY">recovers the first viable image stream, if any, from this description, extracting the image dimensions;</P>
+<P ALIGN="JUSTIFY">replaces this image stream with another one to which it will write the processed data;</P>
+<P ALIGN="JUSTIFY">processes pictures until either the input image stream has no more pictures or the output image stream no longer has any reading modules.</P>
+<P ALIGN="JUSTIFY">Note the use of the <I>`mi_description__acquire_component’</I> function to recover components from a description.   Components are identified by a unique key string and components with the same implementation are collected into classes, which are identified by a component class key.  In the case of image stream components, the class key is given by the macro, <B>MI_IMAGE__CCLASS</B>; however, the class key supplied to <I>`mi_description__acquire_component’ </I>need not be so specific.  If any stream component will do, the <B>MI_STREAM__CCLASS</B> class key would be sufficient, since image streams are a sub-class of streams.  Each component has a separate unique key string which is used to distinguish amongst multiple components from the same class.  The <I>`mi_description__acquire_component’ </I>is able to accept wildcard strings which it matches against the component key.  It also allows lower and upper bounds to be specified on the component key which enables the function to be used in enumerating components which match a wildcard specification.  In the case at hand, we enumerate all image stream components until we encounter one which is capable of conveying picture data.  This is probably the most general and portable method for discovering an appropriate image stream when implementing simple image processing algorithms.</P>
+<P ALIGN="JUSTIFY">It is important to observe that the image stream component consists of two pieces: the <I>`mi_component’</I> container object, which has the same form for all components; and the embedded, <I>`mi_image’</I> object, which can only be recovered by invoking the <I>`mi_component__get_object’</I> function and casting the result to a pointer to the correct object.  You have to know the association between the component class keys (<B>MI_IMAGE__CCLASS</B> in this case), and the embedded object which will be returned by the resulting <I>`mi_component’</I> object’s <I>`mi_component__get_object’ </I>function.  Although this may appear to be a pitfall, it should be noted that the macro which holds the component class key always the form <B>&lt;EMBEDDED OBJECT NAME&gt;__CCLASS</B>.  Moreover, although casting bypasses the compiler’s type-checking mechanisms, invalid casts will ultimately be caught and reported at run-time, as soon any attempt is made to exercise the embedded object’s interface.  Finally, the association between class keys and embedded objects can usually be ignored altogether when implementing modules in C++, as explained in Section II-5.1.</P>
+<P ALIGN="JUSTIFY">Before any image sample values can be read from the image stream, its `mi_image__set_input_precision’ function must be invoked to nominate the precision with which the module wishes to read these sample values.   The only valid working precisions for streams are given by the macros, <B>MI_TYPE_BYTE </B>(8-bit unsigned characters), <B>MI_TYPE_SHORT</B> (16-bit short integers) and <B>MI_TYPE_FLOAT</B> (32-bit IEEE single-precision floating point numbers), which hold the type-codes for a subset of the elementary types supported by Media Interface object interfaces, as explained in Section III-1.  Only once the precision has been nominated may the module enquire as to the nominal range associated with the samples in each image plane, since this information is only meaningful once the stream has been given an opportunity to determine an appropriate conversion strategy, if the reading and writing precisions do not match.  Similarly, the module must explicitly set both the output precision and the nominal range of sample data with respect to that precision before it can link its output stream into the description and pass this description across its output gateway.</P>
+<P ALIGN="JUSTIFY">The remainder of the <I>`simple_example_module’</I> function should be largely self-explanatory, so we turn our attention now to the process of reading and writing stream data.  The implementation of the <I>`transfer_picture’</I> function illustrates the most fundamental mechanism used to perform stream I/O.  Both reading and writing operations are double-ended, which differs somewhat from the more familiar <I>fread</I> and <I>fwrite</I> transactions with which most programmers are familiar.  A read operation is initiated by a request for a certain number of buffers into which data has already been written; in the case of an image stream, the buffers correspond to image rows.  The module does not allocate storage for the image data, but leaves this task to the underlying stream object.  Once the image sample values are no longer needed, the buffers are returned to the stream to close the double-ended transaction.  Similarly, a write operation is initiated by a request for a certain number of buffers into which it intends to write data; these buffers are returned to the stream once the relevant data has been written.  Buffers are read and written in sequence within any given picture; however, they may be opened and closed in different increments, if desired, which allows moving windows to be implemented with considerable ease.  Although each picture must be read or written from top to bottom, there is no restriction on the order in which multiple pictures must be accessed; modules may open any number of pictures in a video sequence and read and write to these pictures in any order they like.  The stream objects themselves manage resource allocation and determine the minimum amount of memory which is required to satisfy the combined access patterns of the stream’s writing module and all of its reading modules.</P>
+<P ALIGN="JUSTIFY">Each image row consists of interleaved image &quot;pixels&quot;, with <I>P</I> samples per pixel, where <I>P</I> is the number of image planes.  For general streams, the interpretation of a plane is arbitrary; for example, a stereo audio stream might have two planes.  In the special case of image streams, the planes will often correspond to colour components in the image; however, there is no requirement that image planes be colour planes.  If the interpretation of the image planes is important to a particular processing module, it should also request <B>MI_COLOR_SPACE__CCLASS</B> and <B>MI_SAMPLING_GEOMETRY__CCLASS </B>components from the relevant description in order to determine the relationship between image planes and colour components and the relationship between the locations of samples in each of the planes.  This is demonstrated in the more comprehensive example of Section II-5.</P>
+<P ALIGN="JUSTIFY">&nbsp;</P>
+<LI><A NAME="_Toc407005524"></FONT><FONT FACE="Arial Black" SIZE=5>Programming Issues</A></A></A></LI>
+<OL>
+
+<LI><A NAME="_Toc407005525"></FONT><FONT FACE="Arial Black" SIZE=4>Organising and Compiling Modules</A></A></A></LI>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">In this module we discuss techniques and conventions which will be helpful in writing your own Media Interface modules in C or C++.  We do not specifically discuss techniques for writing applications which use the Media Interface system but are not actually modules; however, these should be obvious for the module-specific information we do provide.   We also do not discuss the Media Interface pre-compiler, <B>mi_precompile</B>, here, since this is required only in more advanced situations and is thoroughly discussed in Section III-1.</P>
+<OL>
+
+<LI><A NAME="_Toc407005526"><B>Note on Static and Global Variables</A></LI>
+</B><P ALIGN="JUSTIFY">Module developers should avoid the use of static and global variables at all times, except when these are used to store &quot;read-only&quot; data.  Otherwise, the resulting module code will not be re-entrant, which means that multiple instances of the module cannot be executed within the same process context.  Avoidance of static and global variables is widely appreciated as a good programming practice, quite apart from specific Media Interface conventions.  In fact, the entire Media Interface library is completely re-entrant, so that multiple environments and even multiple versions of the library can co-exist within the same process context.</P>
+<LI><A NAME="_Toc407005527"><B>Building Modules on UNIX Platforms</A></A></LI>
+</B><P ALIGN="JUSTIFY">For maximum portability, module developers are strongly encouraged to adopt the same source code organisation as that found in the example module directories, <B><I>/opt/mi/ansi_c_examples</B></I> and <B><I>/opt/mi/c_plus_plus_examples</B></I>.  The source for all these examples consists of a <B><I>Makefile</B></I>, a single header file and two source files, although more complex modules might have additional source and header files.  We will concentrate on the organisation of the <B><I>simple_example</B></I> module found in, <B><I>/opt/mi/ansi_c_examples/simple_example</B></I>, for the purposes of this discussion.  The <B><I>standalone_wrapper.c </B></I>file contains only the <I>main() </I>function, required to build a standalone command-line driven executable from the module.  This is kept separate from the primary source file, <B><I>simple_example.c</B></I>, since it is not required to build a module library.</P>
+<P ALIGN="JUSTIFY">The <B><I>standalone_wrapper.c</B></I> file consists of the following simple lines of code:</P>
+</FONT><FONT FACE="Courier" SIZE=2><P>#include &lt;mi_system.h&gt;<BR>
+#include &lt;mi_console.h&gt;<BR>
+#include "simple_example.h"<BR>
+<BR>
+int main(int argc, char *argv[])<BR>
+{<BR>
+  mi_module_access_func funcs[2] = {simple_example_access,NULL};<BR>
+<BR>
+  return(mi_run_console_pipeline(argc,argv,MI_TRUE,funcs);<BR>
+}</P>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">It should be essentially identical for all processing modules, except that the string, <B>simple_example</B>, should be replaced, wherever it occurs, by the name of the particular processing module which is being built.  In order to build the executable, it is necessary to link against the small static library, <B>mi_console.lib</B>,  which contains the <I>`mi_run_console_pipeline’</I> function.  This function takes a NULL-terminated array, whose entries are the addresses of the access functions for each module to be included in a statically bound processing pipeline.  Of course, when the objective is to build a standalone executable for a single module, the array will have only one non-NULL entry.  The best way to obtain usage information for the resulting executable is to execute it without any arguments.  Although not strictly necessary, standalone executables can be convenient because all inputs are taken from files and all outputs are delivered to files, which can correctly externalise any description.  This means that a processing system can be tested one module at a time, using files to store intermediate results.  Of course, the same result can be achieved with the <B><I>mi_pipe</B></I> and <B><I>mi_pipe2</B></I> system building commands, but these are less easy to use.  At the very least, the standalone executable demonstrates that static, as well as dynamic linking to modules is possible.</P>
+<P ALIGN="JUSTIFY">The <B><I>simple_example.h</B></I> file has already been introduced in Section II-3.1, where the equally source code also appears.  As mentioned, it serves only to advertise the name and declaration of the module’s access function.  Note that this file is included by <B><I>standalone_wrapper.c</B></I>, in order to facilitate static linking.  On the other hand, module libraries will frequently be dynamically loaded without the assistance of this header file.</P>
+<P ALIGN="JUSTIFY">We conclude our discussion of code structure by considering the project’s <B><I>Makefile</B></I>.  This contains all the instructions and settings required to build both a standalone executable and a dynamically loadable library for the module, under version 10.2 or later of the HPUX operating system.  The <B><I>Makefile</B></I> for our simple example module contains the following lines:</P>
+</FONT><FONT FACE="Courier" SIZE=2><P>CC = cc<BR>
+INC_DIR = /opt/mi/include<BR>
+CFLAGS = -Aa –O +z –DUNIX –D_REENTRANT –D_HPUX_SOURCE –I$(INC_DIR)<BR>
+LIB_DIR = /opt/mi/lib<BR>
+LOAD_DIR = /opt/mi/module_lib # place to put dynamically loadable library<BR>
+BIN_DIR = /opt/mi/module_bin # place to put standalone executable<BR>
+<BR>
+all :: loadable standalone clean<BR>
+loadable :: simple_example.sl<BR>
+standalone :: simple_example<BR>
+<BR>
+simple_example.o :: simple_example.c simple_example.h $(INC_DIR)/*.h<BR>
+        $(CC) $(CFLAGS) –c \<BR>
+              simple_example.c –o simple_example.o<BR>
+<BR>
+simple_example : simple_example.o standalone_wrapper.c $(INC_DIR)/*.h<BR>
+        $(CC) $(CFLAGS) standalone_wrapper.c simple_example.o \<BR>
+              $(LIB_DIR)/mi_sys.sl $(LIB_DIR)/mi_console.lib \<BR>
+              –o $(BIN_DIR)/simple_example<BR>
+<BR>
+simple_example.sl : simple_example.o<BR>
+        ld –b +e simple_example_access \<BR>
+              -o $(LOAD_DIR)/simple_example.sl simple_example.o<BR>
+<BR>
+clean :<BR>
+        rm –f *.o</P>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">Module developers are highly recommended to copy this <B><I>Makefile</B></I>, replacing the string, <B>simple_example</B><I>,</I> with the name of the relevant module, wherever it occurs, and applying the following customisations:</P>
+<P ALIGN="JUSTIFY">Set the <B>LOAD_DIR</B> variable to the reference an appropriate directory on the default Media Interface load path, into which the dynamically loadable module library should be placed.  Recall that the default load path is specified by the <B>MI_MODULE_PATH</B> environment variable.</P>
+<P ALIGN="JUSTIFY">Set the <B>BIN_DIR</B> variable to reference the directory into which the standalone executable should be stored, if built.</P>
+<P ALIGN="JUSTIFY">Set the <B>–O</B> flag to <B>–g</B> in the <B>CFLAGS</B> definition, when debugging the module.</P>
+<P ALIGN="JUSTIFY">&nbsp;</P>
+<LI><A NAME="_Toc407005528"><B>Building Modules on WIN32 Platforms</A></LI></OL>
+
+</B><P ALIGN="JUSTIFY">Exactly the same organisational recommendations apply to modules which are to be compiled for WIN32 platforms, with the exception of the UNIX specific <B>Makefile</B>, mentioned in Section II-4.1.2.  In place of a Makefile, the module developer will probably prefer to use the interactive options on Microsoft’s Visual C++ compiler.  The comments in this section apply only to version 4.0 and subsequent versions of this compiler.  For convenience, developers will probably prefer to build only a dynamically loadable library (DLL), for which the <B><I>standalone_wrapper.c</B></I> file is also unnecessary.   The following non-default settings must be observed:</P>
+<P ALIGN="JUSTIFY">In the &quot;C/C++&quot; folder, set the &quot;Category&quot; list box to the &quot;Preprocessor&quot; option and add the Media Interface include directory, i.e. <B><I>C:\mi\include</B></I> in the &quot;Additional include directories&quot; edit box.  Note that a trailing backslash should be avoided and the only valid separators for additional include directories seem to be commas and semi-colons, not spaces.</P>
+<P ALIGN="JUSTIFY">In the &quot;C/C++&quot; folder again, set the &quot;Category&quot; list box to the &quot;Code Generation&quot; option and then set the &quot;Use run-time library&quot; list box to the &quot;Multithreaded DLL&quot; setting.  Note that you can use this option for debug as well as release versions of your module.</P>
+<P ALIGN="JUSTIFY">In the &quot;Link&quot; folder, set the &quot;Category list box&quot; to &quot;General&quot; and then modify the &quot;Object/library modules&quot; edit box, adding the <B><I>C:\mi\lib\mi_sys.lib</B></I> library.</P>
+<P ALIGN="JUSTIFY">Again, in the &quot;Link&quot; folder, with &quot;Category&quot; set to &quot;General&quot;, change the &quot;Output file name&quot; edit box to place the module’s DLL in one of the search directories specified via the <B>MI_MODULE_PATH</B> environment variable.  In order to conform to the naming conventions discussed in Section II-3.1, the base library file name should generally be the name of the module with the usual <B><I>.dll</B></I> suffix.  Alternate versions of the same module can use different library file names, provided these names build on the base name with additional suffices, separated by underscore characters.  Thus, it may turn out to be useful to place the debug version of the <B><I>simple_example</B></I> module into <B><I>simple_example_dbg.dll</B></I>, instead of <B><I>simple_example.dll</B></I>.</P>
+<LI><A NAME="_Toc407005529"></FONT><FONT FACE="Arial Black" SIZE=4>Debugging</A></A></A></LI>
+<OL>
+
+<LI><A NAME="_Toc407005530"></FONT><B><FONT FACE="Arial" SIZE=3>Run-Time Verification</A></A></LI>
+</B><P ALIGN="JUSTIFY">The interface functions published by Media Interface objects apply substantial run-time validation tests to the objects, arrays and elementary types which are passed in as arguments.   Apart from a few deliberate exceptions, arrays must contain a private header with size, type-code and signature information which will only be present if the array was allocated with <I>`mi_alloc’</I>.  All Media Interface objects identify their entire derivation history, which allows the validity of an object reference to be tested at run-time.  Objects also maintain signature information which identifies the name, return and argument types associated with all interface functions, which makes it possible to verify that an object’s interface actually supports some required function.  Also, objects are equipped with permission flags, which can be used to explicitly disable such operations as destruction, duplication, extension and modification, as the need arises.  The Media Interface system library provides functions to facilitate and encourage validation tests along these lines and these validation functions are used extensively by the standard object interfaces to enforce consistency with their intended usage.  Examples of such validation functions are <I>`mi_verify_array’</I> and <I>`mi_test_valid_vfunc’</I>.  Failure to satisfy some validation test generally results in a reasonably helpful run-time error message.  In order to precisely locate the source of the error within a debugger, the exit monitors described in Section II-4.2.3 can then be used.</P>
+<P ALIGN="JUSTIFY">In the interests of efficiency, a number of validation tests are performed only in debug mode.  Functions in an object’s interface are bound to particular invocations either statically or dynamically.  In the case of dynamic binding, it is the caller’s responsibility to obtain the location of the relevant function with the aid of <I>`mi_find_vfunc’</I>. This function returns 0 if an appropriate function cannot be found in the object’s interface; however, an appropriate error message will always be generated if the caller attempts to invoke a function at this location without testing for the zero return value.  In the much more common case of static function binding, functions are invoked indirectly through stubs which are tailored to the relevant programming language.  ANSI C stubs are defined in the <B><I>.hv</B></I> files found in the Media Interface include directory, whereas C++ stubs are found in the <B><I>.hpp</B></I> files.  When compiling in release mode, these stubs reduce to macros or inline functions, as appropriate, which incur negligible overhead, but perform none of their own run-time validation.  In debug mode, however, the stubs add at least one level of function indirection to any interface call and they perform run-time validation on the object and its interface before attempting to invoke the actual interface function.  As a result, debug code is generally much larger and runs considerably slower than release code, but provides run-time consistency verification.  Note that this has nothing to do with how the Media Interface system library itself was compiled.</P>
+<P ALIGN="JUSTIFY">Again, in the interests of efficiency, the implementation of individual functions in an object’s interface, also sometimes behaves differently depending upon whether it is compiled in release or debug mode.   For example, some tests are deliberately omitted in stream interface functions which have been compiled in release mode.  Unfortunately, this depends upon how the Media Interface system library has been compiled which is out of the control of individual module developers.  To assist in tracking down bugs, we provide an alternative version of the system library, <B><I>`mi_sys_dbg.lib’</B></I>, against which developers can link their modules.  This version of the library can even co-exist with the regular release version in a single process, so that some modules in a system may have been linked against the release version, whereas others may have been linked against the debug version.  Unfortunately, however, linking against the debug version of the Media Interface system library does not guarantee access to the debug version of object interface functions.  This is because the object may be created in a portion of the processing system which was linked against the release version of the Media Interface system library, before it is used in a portion which was linked against the debug version.  This usually causes difficulties with <I>`mi_component’</I> objects and their embedded <I>`mi_component_object’</I> objects, because these objects are created indirectly via a database of component foundries, which is initialised when the relevant Media Interface environment is first created; this usually occurs in the application from which the module you are trying to debug is launched.  A convenient way to ensure access to debug versions of all component object interface functions is to launch your module from the <B><I>`mi_pipe_dbg’</B></I> or <B><I>`mi_pipe2_dbg’</B></I> applications, rather than the usual <B><I>`mi_pipe’</B></I> and <B><I>`mi_pipe2’</B></I> applications.  These have themselves bee
+n linked against <B><I>`mi_sys_dbg.lib’</B></I> , rather than <B><I>`mi_sys.lib’.</P>
+<LI><A NAME="_Toc407005531"></I>Compilation Directives</A></LI>
+</B><P ALIGN="JUSTIFY">The purpose of this brief section is to summarise the symbols which may be defined (<B>#define</B>) in order to modify the behaviour of a C or C++ program which uses Media Interface objects.</P>
+<B><P ALIGN="JUSTIFY">MI_DEBUG:</B> If this symbol is defined before including the relevant header files (usually just <B>mi_std.h</B> or <B>mi_std.hpp</B>), then the debug function access stubs will be used to invoke functions in any of the relevant Media Interface object interfaces.  As discussed in Section II-4.2.1, this generally creates considerably larger and slower code, but offers substantial run-time verification at all interface boundaries.  This symbol is automatically defined if the usual debug symbol, <B>_DEBUG</B>, happens to be defined, and the MI_RELEASE symbol has not been defined.</P>
+<B><P ALIGN="JUSTIFY">MI_RELEASE: </B>If this symbol is defined before including the relevant header files (usually just <B>mi_std.h</B> or <B>mi_std.hpp</B>), then the fast and efficient release function access stubs will be used to invoke functions in any of the relevant Media Interface object interfaces, even if the debug symbol, <B>_DEBUG</B>, is defined.</P>
+<B><P ALIGN="JUSTIFY">MI_ASSUME_COMPATIBLE: </B>If this symbol is defined before including the relevant header files (usually just <B>mi_std.h</B> or <B>mi_std.hpp</B>), then the release mode function access stubs (i.e. those used when <B>MI_DEBUG</B> is not defined and either <B>MI_RELEASE</B> is defined or <B>_DEBUG</B> is not defined), will be further trimmed down to implement the smallest and most efficient possible function accesses.  Unfortunately, this will create problems unless you are prepared to guarantee that the interfaces of all relevant objects will remain compatible with the definitions used during compilation.  Specifically, defining this symbol disables run-time detection and resolution of interface compatibility problems.  When defined within the source code used to implement the interface functions of any newly defined Media Interface object, this symbol has additional implications which are discussed in Section III-1.</P>
+<B><LI><A NAME="_Toc407005532">Exit Monitors</A></A></LI>
+</B><P ALIGN="JUSTIFY">As mentioned in Section II-4.2.1, the Media Interface system offers substantial support for run-time consistency verification.  Upon failure, the relevant module will terminate through <I>`mi_module__exit’</I>, usually after issuing an appropriate error message.  Unfortunately, once a module has terminated, its execution stack is unwound, and so it is impossible to inspect the stack in an interactive debugger and so determine the exact location of the fault.  Ideally, one would insert a breakpoint within the call to <I>`mi_module__exit’</I>, thereby solving this dilemma; however, most developers will not have this privilege.  The Media Interface system provides an equivalent alternative in the form of exit monitors.  Exit monitors are actually objects, whose interface contains an <I>`mi_monitor__replaceable’</I> function, which the user must manually install with an appropriate function into which the desired breakpoint can be placed.  Once a module has created such an exit monitor and installed it with <I>`mi_module__set_exit_monitor’</I>, any call to that module’s <I>`mi_module__exit’</I> function will invoke the associated <I>`mi_monitor__replaceable’</I> function before unwinding the execution stack.  The following code fragment demonstrates the installation of an exit monitor.</P>
+</FONT><FONT FACE="Courier" SIZE=2><P>#ifdef _DEBUG<BR>
+static void<BR>
+  exit_monitor_func(mi_monitor_ptr object, mi_uint vidx,<BR>
+                    mi_module_ptr who_calls)<BR>
+{<BR>
+  return; /* Set breakpoint here. */<BR>
+}<BR>
+#endif</P>
+<P>static void<BR>
+  my_module_entry_point(mi_module_access_ptr object, mi_uint vidx,<BR>
+                        mi_module_ptr who_calls,<BR>
+                        mi_input_gateway_list_ptr inputs,<BR>
+                        mi_output_gateway_list_ptr outputs,<BR>
+                        mi_module_arguments_ptr arguments)<BR>
+{<BR>
+  ...<BR>
+#ifdef _DEBUG<BR>
+  mi_monitor_ptr monitor;<BR>
+<BR>
+  monitor = mi_create_monitor(who_calls,NULL);<BR>
+  mi_install_vfunc(who_calls,(mi_object_ptr) monitor,<BR>
+                   MI_MONITOR__REPLACEABLE__SIGN,<BR>
+                   (mi_vfunc_func) exit_monitor_func);<BR>
+ mi_module__set_exit_monitor(who_calls,who_calls,monitor);<BR>
+#endif</P>
+<LI><A NAME="_Toc407005533"></FONT><B><FONT FACE="Arial" SIZE=3>Heap Integrity Verification</A></LI>
+</B><P ALIGN="JUSTIFY">One of the most common and most difficult bugs to locate in large complex processing systems is memory heap corruption.  This occurs when one module accidentally overwrites memory which it has not allocated.  The problem is particularly nasty, because heap corruption may go completely undetected when the module is used in one system and cause failure only when ported to a different system, platform or usage model.  Moreover, the effects of the problem may not be felt until much later or even in a different, completely innocent module.  The Media Interface system does not insist that all memory be allocated using its own <I>`mi_alloc’</I> function; however, this is the only way to take advantage of the system’s garbage collection and consistency verification features.  Also, many object interface functions require arrays which must have been allocated using <I>`mi_alloc’</I> in order to satisfy the consistency tests which they apply.  As a result, we will assume here that all memory in a processing system has, in fact been allocated using this function.  Given that this is the case, the <I>`mi_check_heap_integrity’</I> function may be invoked at any time to verify the integrity of the Media Interface system’s own private memory heap.  Virtually all memory overwrites which will can lead to failure will be caught by this function.  The idea is that a module developer who suspects an overwrite problem within his module should call <I>`mi_check_heap_integrity’ </I>from time to time until a failure is detected.  A divide and conquer strategy can then be used to rapidly home in on the particular line of code which originally caused the problem.  In our experience, this feature has proven extremely useful in rapidly tracking down memory overwrite bugs.</P>
+<LI><A NAME="_Toc407005534"><B>Tracing Memory Leaks</A></LI></OL>
+
+</B><P ALIGN="JUSTIFY">Memory leaks are blocks of memory, arrays or objects which were allocated, but not released in a timely manner.  They do not actually cause failure, but may cause a system to consume more memory resources than it should.  The Media Interface system automatically garbage collects all outstanding memory resources of any kind when the relevant module or modules terminate, either normally or prematurely; however, it is always better to release resources as soon as possible.  To assist in detecting and tracking down memory leaks, modules are equipped with a pedantic resource mode which may be set with the aid of the <I>`mi_module__set_pedantic_resource_mode’</I> function.  When a module terminates normally, i.e. by returning from its entry-point function, with its pedantic resource mode set, the Media Interface system issues helpful warning messages concerning objects or other memory resources which could have been explicitly released, but were not.  The information in warning messages is often sufficient to identify the source of the problem immediately, but an even more thorough investigation can be undertaken, if necessary, with the aid of the <I>`mi_module__set_memory_trap’</I> function.</P>
+<P ALIGN="JUSTIFY">Each module’s pedantic resource mode is initialised to that of the module which created it, with the original environment manager module having its pedantic resource mode turned off by default.  In this way, all modules in a system can generally be instructed to operate in their pedantic resource mode by setting that of the environment manager module when the top-level Media Interface environment is first created.  The <B><I>`mi_pipe’</B></I> and <B><I>`mi_pipe2’</B></I> applications can accept a <B>`-pedantic’</B> argument which is intended for precisely this purpose.  It is worth testing a module using one of these applications in conjunction with the <B>`-pedantic’</B> option from time to time.  For an introduction to the concepts of environments and environment managers, the reader is referred to Sections II-6 and III-4.</P>
+<LI><A NAME="_Toc407005535"></FONT><FONT FACE="Arial Black" SIZE=4>Distributing your Modules and Applications</A></A></A></A></LI></OL>
+
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">To facilitate the distribution of Media Interface modules and applications to WIN32-based users (including regular consumers), the original <B><I>setup.exe</B></I> program used to install the system in the first place may be reused to package up any collection of Media Interface components for redistribution.  If the guidelines set out in this section are followed, all appropriate version checking and updating operations should behave correctly, regardless of the components which already exist on the target platform.</P>
+<P ALIGN="JUSTIFY">The first step is to specify the components which are to be installed on the target platform by editing a text file.  The syntax of this file is not explained in great detail here; however, the <B><I>C:\mi\install\tools</B></I> directory contains an example configuration file, which is generally the one used to build the standard Media Interface installation package itself.  The format of this file should be relatively obvious and, in fact, the example file should generally be used as a starting point for constructing new distribution packages.  Basically, the configuration file is organised into component groups (included within the curly braces), each of which specifies one or more target directories (included within square brackets).  The components to be installed in each target directory within a component group are identified by their full path name on the current machine.  The full path name is used only to locate the component to be installed and is lost during the installation process described below.  In addition to the path name, one or more identifiers may be supplied (included in parentheses) to specify whether the component is an application, a module, a core component and so on.  The full set of possible identifiers is used in the example configuration file supplied.  These identifiers are used to modify the action taken by the <B><I>setup.exe</B></I> program when it installs the components, e.g. create a shortcut for applications, modify the <B>MI_MODULE_PATH</B> environment variable to reference modules, and so forth.   Additional information may also be supplied with individual components to indicate files and/or registry keys which might need to be removed when the component is uninstalled, or to provide arguments for executables which are to be executed during the installation process, as soon as they have been installed.  All these features are documented in the comments which appear with the example configuration file.</P>
+<P ALIGN="JUSTIFY">Once the configuration file has been created, execute the <B><I>make_install_archive.exe</B></I> program, which may be found in the <B><I>C:\mi\install\tools</B></I> directory, to build an installable archive file.  This simple program must be executed from the DOS Prompt, supplying the name of the configuration file to be used, as follows:</P>
+</FONT><FONT FACE="Courier" SIZE=2><P>C:\mi\install\tools\make_install_archive.exe my_stuff.config</P>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">This builds an archive file, <B><I>my_stuff.mia</B></I>, which includes all components to be installed.</P>
+<P ALIGN="JUSTIFY">The final step is to make an installation directory, moving the <B><I>.mia</B></I> archive file into this directory and copying <B><I>setup.exe</B></I> from <B><I>C:\mi\install\distribute\setup.exe</B></I> into the same location.  If the target system does not have a recent copy of Microsoft’s Visual C++ compiler installed, you may also need to include the files<B>, <I>MSVCRTx0.DLL</B></I> into the installation directory, where <B><I>x</B></I> denotes the compiler’s major version number.   As explained in the help information which comes with your compiler, it is illegal to redistribute anything other than the files contained in the <B><I>\msdev\redist</B></I> directory on the original CD which came with the compiler.  If you have used any of the MFC libraries or other shared run-time libraries, place these directly into your installation directory also, rather than including them in the configuration file described above.  The installation directory is now ready to be distributed to your customers.  It is worth noting that multiple archive files may be included in the installation directory, if desired, in which case their contents will be automatically concatenated when the <B><I>setup.exe</B></I> program is executed on the target platform.</P>
+<P ALIGN="JUSTIFY">&nbsp;</P>
+<LI><A NAME="_Toc407005536"></FONT><FONT FACE="Arial Black" SIZE=5>A More Interesting Example Module</A></A></A></A></LI>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">In this section, we work through the source code for a more interesting image processing module.  It is assumed that the reader is already familiar with the concepts and techniques exposed by the simple example of Section II-3.  The module’s function, in this case, is to adjust the saturation of colours in its input image by a simple scaling of the image’s chrominance components.  The module is of particular interest, because it behaves consistently regardless of the colour representation associated with its input image.  Moreover, it is able to manage a variety of different sampling geometries.  The general charter of this module makes it an ideal candidate for showcasing a few of the Media Interface system’s features for managing complex representations.</P>
+<P ALIGN="JUSTIFY">As discussed in Section I-3.2, perhaps the key objective of the Media Interface system is to enable individual modules to be independent of their environment.  Dependence on the behaviour of surrounding modules in a processing system is avoided primarily by encouraging accurate and complete descriptions at the inputs and outputs of each processing module.  In this case, the output is an image which always has a luminance-chrominance colour representation, possibly with sub-sampled chrominance components, regardless of the input representation.  If our ultimate goal is to display the image, the module can always be followed by a general purpose colour conversion and interpolation utility such as <B>cc_interp</B>.  On the other hand, the next module in a processing pipeline might well be interested in working with a luminance-chrominance representation itself.  Consequently, there is no reason why the example module at hand should go out of its way to produce an RGB image, provided it ensures that the image stream it produces is part of an accurate description.</P>
+<OL>
+
+<LI><A NAME="_Toc407005537"></FONT><FONT FACE="Arial Black" SIZE=4>Differences between ANSI C and C++</A></A></A></A></LI>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">The code shown here represents a native C++ implementation of the module, just for variety; however, an ANSI C implementation may be found in <B><I>C:\mi\ansi_c_examples\illustrative_example </B></I>on WIN32 platforms, or <B><I>/opt/mi/ansi_c_examples/illustrative_example</B></I> on UNIX platforms.   Again, we have the familiar header file to facilitate both static and dynamic linking to the module.  It should be noted, however, that the access function itself must be declared within as <B>extern &quot;C&quot;</B>, to avoid the C++ compiler from mangling its name and thereby destroying the naming conventions outlined in Section II-3.1.</P>
+<P ALIGN="JUSTIFY"> </P>
+</FONT><FONT FACE="Courier" SIZE=2><P>/* =====================   ILLUSTRATIVE_EXAMPLE.HPP    ===================== */<BR>
+<BR>
+#ifndef ILLUSTRATIVE_EXAMPLE_HPP<BR>
+#define ILLUSTRATIVE_EXAMPLE_HPP<BR>
+#include &lt;mi_system.hpp&gt;<BR>
+<BR>
+extern "C" {<BR>
+  extern MI_EXPORT void<BR>
+    illustrative_example_access(mi_module_ptr who_calls,<BR>
+                                mi_module_access_ptr access);<BR>
+}<BR>
+#endif</P>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">To gain access to the native C++ access stubs, it is necessary to include <B><I>mi_std.hpp</B></I>, instead of <B><I>mi_std.h. </B></I>The main difference between the ANSI C and C++ implementations is that functions associated with Media Interface objects may be invoked using the familiar object-oriented syntax.  Thus, for example, to invoke the <I>`open_input_buffers’</I> method of the <I>`mi_picture’</I> object, one has simply to type</P>
+</FONT><FONT FACE="Courier" SIZE=2><P>pic.open_input_buffers(who_calls, ...)</P>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">instead of</P>
+</FONT><FONT FACE="Courier" SIZE=2><P>mi_picture__open_input_buffers(pic,who_calls, ...)</P>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">There are also a significant number of additional advantages to implementing modules in C++, rather than ANSI C.  Most notably,</P>
+<P ALIGN="JUSTIFY">there is no need for explicit casting when passing an object into a function which requires a less derived (ancestor) object – the call to <I>`mi_install_vfunc’</I> in the module’s access function illustrates this fact;</P>
+<P ALIGN="JUSTIFY">the C++ objects, declared as <B>&lt;object name&gt;_class</B>, may be directly assigned to and compared against the pointers used in ANSI C implementations, declared as <B>&lt;object name&gt;_ptr</B>; and</P>
+<P ALIGN="JUSTIFY">objects used to represent components of descriptions have additional convenience member functions which can save quite a lot of typing and guard against careless errors.</P>
+<P ALIGN="JUSTIFY">As an example of this last point, recall from Section II-3.3 that the ANSI C code required to create an image stream component and set the underlying `mi_image’ object’s width was:</P>
+</FONT><FONT FACE="Courier" SIZE=2><P>{<BR>
+  mi_component_ptr comp;<BR>
+  mi_image_ptr image;<BR>
+  ...<BR>
+  ...<BR>
+  comp = mi_create_component(who_calls,MI_IMAGE__CCLASS,"MY_IMAGE",NULL);<BR>
+  image = (mi_image_ptr)<BR>
+    mi_component__get_object(comp,who_calls);<BR>
+  mi_image__set_width(image,who_calls,100);<BR>
+  ...<BR>
+}</P>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">In C++, the following code fragment achieves the same goal:</P>
+</FONT><FONT FACE="Courier" SIZE=2><P>{<BR>
+  mi_component_class comp;<BR>
+  mi_image_class image;<BR>
+  ...<BR>
+  ...<BR>
+  comp = image.create(who_calls,"MY_IMAGE",NULL);<BR>
+  image.set_width(who_calls,100);<BR>
+  ...<BR>
+}</P>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">Utility functions are provided to simplify the operations required both to create new components and to acquire existing components from an <I>`mi_description’</I> object.  In order to find out what utility functions are actually available and what they do, it is probably worthwhile explicitly opening the <B>mi_std_components.hpp </B>header file and examining the class declaration for any of the component objects defined therein, e.g<B><I>. </B>`mi_sampling_geometry_class’</I>. </P>
+<LI><A NAME="_Toc407005538"></FONT><FONT FACE="Arial Black" SIZE=4>Source Code</A></A></A></LI>
+</FONT><FONT FACE="Courier" SIZE=2><P>/* =====================   ILLUSTRATIVE_EXAMPLE.CPP    ===================== */<BR>
+<BR>
+#include &lt;mi_std.hpp&gt;<BR>
+#include &lt;stdlib.h&gt;<BR>
+#include &lt;assert.h&gt;<BR>
+#include "illustrative_example.hpp"<BR>
+<BR>
+/*****************************************************************************/<BR>
+/* STATIC                        process_picture                             */<BR>
+/*****************************************************************************/<BR>
+<BR>
+static void<BR>
+  process_picture(mi_module_class who_calls, mi_picture_class in_pic,<BR>
+                  mi_picture_class out_pic, mi_uint cols, mi_uint in_planes,<BR>
+                  mi_uint out_planes, mi_color_map_class map,<BR>
+                  mi_uint plane_associations[], float factor)<BR>
+<BR>
+ /* This is the workhorse routine, which actually processes all the image<BR>
+    rows.  It works with variable or fixed height images. */<BR>
+<BR>
+{<BR>
+  void *in_buf, *out_buf;<BR>
+  float *sp, *dp;<BR>
+  mi_uint c, p;<BR>
+<BR>
+  while (in_pic.open_input_buffers(who_calls,&amp;in_buf,0,1))<BR>
+    {<BR>
+      out_pic.open_output_buffers(who_calls,&amp;out_buf,0,1);<BR>
+      if (map != NULL)<BR>
+        map.apply_to_floats(who_calls,cols,(float *) in_buf);<BR>
+      for (p=0; p &lt; out_planes; p++)<BR>
+        {<BR>
+          dp = ((float *) out_buf) + p;<BR>
+          sp = ((float *) in_buf) + p;<BR>
+          if (plane_associations[p] == 0) /* Luminance channel. */<BR>
+            for (c=cols; c &gt; 0; c--, sp += out_planes, dp += out_planes)<BR>
+              *dp = *sp;<BR>
+          else /* One of the chrominance channels. */<BR>
+            for (c=cols; c &gt; 0; c--, sp += out_planes, dp += out_planes)<BR>
+              *dp = *sp * factor;<BR>
+        }<BR>
+      out_pic.close_output_buffers(who_calls,&amp;out_buf,0,1);<BR>
+      in_pic.close_input_buffers(who_calls,&amp;in_buf,0,1);<BR>
+    }<BR>
+}<BR>
+<BR>
+/*****************************************************************************/<BR>
+/* STATIC                illustrative_example_module                         */<BR>
+/*****************************************************************************/<BR>
+<BR>
+static void<BR>
+  illustrative_example_module(mi_module_access_class access, mi_uint vidx,<BR>
+                              mi_module_class who_calls,<BR>
+                              mi_input_gateway_list_class inputs,<BR>
+                              mi_output_gateway_list_class outputs,<BR>
+                              mi_module_arguments_class args)<BR>
+{<BR>
+  mi_module_arg_ptr ap;<BR>
+  mi_uint cols, rows, in_planes, out_planes, p;<BR>
+  mi_description_class description;<BR>
+  mi_gateway_class in_gate, out_gate;<BR>
+  mi_component_class in_comp, out_comp, space_comp;<BR>
+  mi_image_class in_image, out_image;<BR>
+  mi_picture_class in_pic, out_pic;<BR>
+  mi_string image_key;<BR>
+  float factor, *in_ranges, *out_ranges;<BR>
+  mi_sampling_geometry_class geometry;<BR>
+  mi_color_space_class in_space, out_space;<BR>
+  mi_illuminant_psd_class psd;<BR>
+  mi_color_map_class map;<BR>
+  mi_uint *plane_associations;<BR>
+  mi_colorimetry_class coordinates;<BR>
+<BR>
+  /* Collect scaling factor. */<BR>
+<BR>
+  ap = args.get_argument(who_calls,"-chrominance_gain");<BR>
+  factor = (float) args.get_real_param(who_calls,ap,0);<BR>
+<BR>
+  /* Get input gateway, description and image. */<BR>
+<BR>
+  in_gate = inputs.get_gateway(who_calls,0);<BR>
+  description = in_gate.receive_description(who_calls,MI_FALSE);<BR>
+  image_key = NULL;<BR>
+  do {<BR>
+    if ((in_comp =<BR>
+         in_image.acquire(who_calls,description,"*",image_key,NULL)) == NULL)<BR>
+      who_calls.error(who_calls,"Could not find an image stream with data at "<BR>
+                      "module input!");<BR>
+    image_key = in_comp.get_key(who_calls);<BR>
+  } while (in_image.get_native_precision(who_calls) == 0);<BR>
+  rows = in_image.get_height(who_calls);<BR>
+  cols = in_image.get_width(who_calls);<BR>
+  in_planes = in_image.get_planes(who_calls);<BR>
+  in_image.set_input_precision(who_calls,MI_TYPE_FLOAT);<BR>
+  in_ranges = (float *) mi_alloc(who_calls,NULL,MI_TYPE_FLOAT,in_planes*2);<BR>
+  for (p=0; p &lt; in_planes; p++)<BR>
+    in_image.get_input_nominal_range(who_calls,p,&amp;(in_ranges[2*p]),<BR>
+                                     &amp;(in_ranges[2*p+1]));<BR>
+<BR>
+  /* Get other components of interest. */<BR>
+<BR>
+  geometry.acquire_simple(who_calls,description,in_comp);<BR>
+  space_comp = in_space.acquire_simple(who_calls,description,in_comp);<BR>
+  psd.acquire_simple(who_calls,description,in_comp);<BR>
+<BR>
+   /* See if we need to change the colour representation and modify the<BR>
+      description accordingly. */<BR>
+<BR>
+  out_space = in_space; out_planes = in_planes; out_ranges = in_ranges;<BR>
+  if (in_space == NULL)<BR>
+    who_calls.error(who_calls,"No colour representation descriptor "<BR>
+                    "available for input image!");<BR>
+  if (in_planes &lt; 3)<BR>
+    who_calls.error(who_calls,"Input image has less than three "<BR>
+                    "image planes!");<BR>
+  coordinates = mi_create_colorimetry(who_calls,NULL);<BR>
+  coordinates.set_srgb(who_calls);<BR>
+  if ((geometry != NULL) &amp;&amp; !geometry.are_planes_cosited(who_calls))<BR>
+    { /* Colour space must be lum-chrom already in this case. */<BR>
+      plane_associations = (mi_uint *)<BR>
+        mi_alloc(who_calls,NULL,MI_TYPE_UINT,out_planes);<BR>
+      if (!in_space.is_visual_lcc(who_calls,coordinates,NULL,NULL,<BR>
+                                  plane_associations,NULL,NULL))<BR>
+        who_calls.error(who_calls,"Cannot convert to a luminance-chrominance "<BR>
+                        "colour representation, since the image does not have "<BR>
+                        "a full set of colour plane samples at every pixel "<BR>
+                        "location!");<BR>
+    }<BR>
+  else<BR>
+    { /* Can perform colour transform if necessary. */<BR>
+      out_planes = 3;<BR>
+      plane_associations = (mi_uint *)<BR>
+        mi_alloc(who_calls,NULL,MI_TYPE_UINT,out_planes);<BR>
+      if (!in_space.is_visual_lcc(who_calls,coordinates,NULL,NULL,<BR>
+                                  plane_associations,NULL,NULL))<BR>
+        { /* Need to transform colour space. */<BR>
+          mi_color_map_class tone_map;<BR>
+          mi_color_map_elt_ptr elt;<BR>
+<BR>
+          space_comp.unlink(who_calls);<BR>
+          map = mi_create_color_map(who_calls,NULL,3);<BR>
+          tone_map = mi_create_color_map(who_calls,NULL,3);<BR>
+          elt = tone_map.add_gamma_elt(who_calls);<BR>
+          for (p=0; p &lt; 3; p++)<BR>
+            tone_map.set_gamma_coefficients(who_calls,elt,p,2.4F,0.055F);<BR>
+          in_space.is_visual_rgb(who_calls,coordinates,NULL,tone_map,<BR>
+                                 plane_associations,map);<BR>
+             /* If the above test succeeds, the `coordinates' and `tone_map'<BR>
+                objects will be modified to reflect the properties of the<BR>
+                underlying visual RGB space, as a side-effect.  We will thus<BR>
+                use these underlying properties rather than the defaults, in<BR>
+                building the new colour representation. */<BR>
+          map.destroy(who_calls);<BR>
+          space_comp = out_space.create(who_calls,NULL,in_comp);<BR>
+          tone_map.add_rgb_to_ycbcr_elt(who_calls);<BR>
+          out_space.make_visual_rgb(who_calls,coordinates,tone_map,3,NULL);<BR>
+          tone_map.destroy(who_calls);<BR>
+          space_comp.link(who_calls,description,MI_FALSE);<BR>
+          out_ranges = (float *)<BR>
+            mi_alloc(who_calls,NULL,MI_TYPE_FLOAT,out_planes*2);<BR>
+          map = in_space.create_conversion_map_simplified(who_calls,NULL,psd,<BR>
+                                          in_ranges,out_space,psd,out_ranges);<BR>
+          plane_associations[0] = 0;<BR>
+          plane_associations[1] = 1;<BR>
+          plane_associations[2] = 2;<BR>
+        }<BR>
+    }<BR>
+  coordinates.destroy(who_calls);<BR>
+<BR>
+   /* Now create the output image and send the modified description across<BR>
+      the output gateway. */<BR>
+<BR>
+  out_comp = out_image.create(who_calls,image_key,NULL);<BR>
+  out_image.set_height(who_calls,rows);<BR>
+  out_image.set_width(who_calls,cols);<BR>
+  out_image.set_planes(who_calls,out_planes);<BR>
+  out_image.set_output_precision(who_calls,MI_TYPE_FLOAT);<BR>
+  for (p=0; p &lt; out_planes; p++)<BR>
+    out_image.set_output_nominal_range(who_calls,p,out_ranges[2*p],<BR>
+                                       out_ranges[2*p+1]);<BR>
+  in_comp.unlink(who_calls);<BR>
+  out_comp.link(who_calls,description,MI_FALSE);<BR>
+  out_gate = outputs.get_gateway(who_calls,0);<BR>
+  out_gate.send_description(who_calls,description,MI_FALSE);<BR>
+<BR>
+  /* Now for the picture processing loop. */<BR>
+<BR>
+ who_calls.release_components(who_calls);<BR>
+ in_image.start_reading(who_calls);<BR>
+ while ((in_pic = in_image.open_input_picture(who_calls)) != NULL)<BR>
+    {<BR>
+      mi_int index, timestamp;<BR>
+<BR>
+      index = in_pic.get_index(who_calls);<BR>
+      timestamp = in_pic.get_timestamp(who_calls);<BR>
+      if ((out_pic =<BR>
+           out_image.open_output_picture(who_calls,index,timestamp)) != NULL)<BR>
+        {<BR>
+          process_picture(who_calls,in_pic,out_pic,cols,in_planes,out_planes,<BR>
+                          map,plane_associations,factor);<BR>
+          out_pic.finish_writing(who_calls);<BR>
+        }<BR>
+      in_pic.finish_reading(who_calls);<BR>
+      if (out_pic == NULL)<BR>
+        break;<BR>
+    }<BR>
+<BR>
+  /* Finish up. */<BR>
+<BR>
+  in_image.finish_reading(who_calls);<BR>
+  out_image.finish_writing(who_calls);<BR>
+  mi_free(who_calls,plane_associations);<BR>
+  mi_free(who_calls,in_ranges);<BR>
+  if (out_ranges != in_ranges)<BR>
+    mi_free(who_calls,out_ranges);<BR>
+  if (map != NULL)<BR>
+    map.destroy(who_calls);<BR>
+}<BR>
+<BR>
+/*****************************************************************************/<BR>
+/*                        illustrative_example_access                        */<BR>
+/*****************************************************************************/<BR>
+<BR>
+void<BR>
+  illustrative_example_access(mi_module_ptr who_,<BR>
+                              mi_module_access_ptr acc_)<BR>
+{<BR>
+  mi_module_class who_calls = who_;<BR>
+  mi_module_access_class access = acc_;<BR>
+<BR>
+  static mi_string args[] =<BR>
+    {"-chrominance_gain %f [1.0]",<BR>
+     "This optional argument controls the factor by which chrominance "<BR>
+     "components of the source image are scaled, thereby controling the "<BR>
+     "amount by which colour saturation is enhanced.  By default, the "<BR>
+     "colour saturation is neither enhanced nor decreased.",<BR>
+   NULL};<BR>
+  static mi_string keys[] =<BR>
+    {"saturation","example","color processing","chrominance components",<BR>
+     "decimation",NULL};<BR>
+  static mi_string description =<BR>
+    "\t11. Synopsis\n\n"<BR>
+    "Processes any image stream, altering the saturation of image colours by "<BR>
+    "scaling the chrominance channels.  Handles image streams with decimated "<BR>
+    "chrominance components."<BR>
+    "\n\n"<BR>
+    "\t12. Behaviour\n\n"<BR>
+    "If the input image stream does not have a luminance-chrominance "<BR>
+    "representation, it is converted into a YCbCr representation in order to "<BR>
+    "scale the chrominance channels.  This happens, even if no chrominance "<BR>
+    "gain is explicitly requested via the `chrominance_gain' argument."<BR>
+    "\n\n"<BR>
+    "\t13. Internal Working Precision\n\n"<BR>
+    "The module uses floating point precision for all internal computations."<BR>
+    "\n\n"<BR>
+    "\t12. Author\n\n"<BR>
+    "David Taubman (HP Labs)\n"<BR>
+    "\t  Telnet: 857-3432\n"<BR>
+    "\t  Email:  taubman@hpl.hp.com\n\n";<BR>
+<BR>
+  mi_install_vfunc(who_calls,access,<BR>
+                   MI_MODULE_ACCESS__REPLACEABLE__SIGN,<BR>
+                   (mi_vfunc_func) illustrative_example_module);<BR>
+  access.set_version(who_calls,MI_VERSION);<BR>
+  access.set_inputs(who_calls,1);<BR>
+  access.set_outputs(who_calls,1);<BR>
+  access.set_name(who_calls,"illustrative_example");<BR>
+  access.set_keys(who_calls,keys);<BR>
+  access.set_argument_descriptions(who_calls,args);<BR>
+  access.set_module_description(who_calls,description);<BR>
+}</P>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">As for the example of Section II-3, we do not make any attempt here to examine the statements in the above code fragment in great detail, since the on-line HTML documentation is more than adequate for this purpose.  Instead, in three sections which follow, we discuss some of the most important concepts introduced by this example.</P>
+<OL>
+
+<LI><A NAME="_Ref405037421"><A NAME="_Toc407005539"><B>Exporting Argument Information</A></A></LI>
+</B><P ALIGN="JUSTIFY">The access function, in this case, has essentially the same form as that discussed in Section II-3.2.  The module exports a larger number of search keys, some of which involve multi-word phrases, and the text description is a little longer; however, the main new feature here is the presence of argument descriptions.  The <I>`set_module_description’</I> method of the <I>`mi_module_access’</I> object takes a NULL-terminated array of character strings.  This array must hold exactly two character strings for each argument accepted by the module.  The first of these two strings contains an intuitive symbolic description of the argument, which is used by various Media Interface library functions and verify arguments in accordance with the prevailing user-interaction model.  The second in each pair of character strings represents an unformatted help string, which may be used by argument acquisition utilities to provide help information on demand.  In this particular case, the symbolic string, &quot;-chrominance_gain %f [1.0]&quot;, identifies an optional argument, whose name is <B>–chrominance_gain</B>, which takes a single real-valued parameter, having a default value of 1.0.  The symbolic language used by this string is actually much more general than this example might indicate.  Consider, for example, the following argument specification:</P>
+</FONT><FONT FACE="Courier" SIZE=2><P>static mi_string[] =<BR>
+  {"-arg1 %s%*s []",<BR>
+   "Help for argument 1 would go here.",<BR>
+   "-arg2 %2d%f%?s [5,6,2.4,hello] #1",<BR>
+   "Help for argument 2 would go here.",<BR>
+   NULL};</P>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">This identifies <B>–arg1</B> as an optional argument, taking one or more string parameters.  The second argument, named –<B>arg2</B>, is valid only if the first argument is supplied.  It takes two integer parameters, one real-valued parameter and an optional string parameter, all of which have default values which will be used in the event that the argument is not explicitly supplied.  For more information concerning the Media Interface’s argument specification language, the reader is again referred to the on-line HTML documentation.</P>
+<LI><A NAME="_Toc407005540"><B>Collecting Arguments and Image Properties</A></LI>
+</B><P ALIGN="JUSTIFY">This is the first of two sections, which together work through the module’s entry-point function.  The module’s single parameter is easy to extract from the <I>`mi_module_arguments’</I> object passed into its entry-point function.  The parameter is guaranteed always to exist, because the corresponding argument description string, discussed above in Section II-5.2.1, provides a default value.</P>
+<P ALIGN="JUSTIFY">In general, this module may need to perform some colour conversion operations.  Consequently, the nominal range of output image samples may be different to that of the input image samples.  In fact, the number of input image planes need not even be the same as the number of output image planes.  The module prepares itself for these difficulties by extracting the nominal range information for all input image planes and storing it in a private array, <B>in_ranges</B>, which may need to be passed into Media Interface functions discussed below in Section II-5.2.3.  Notice that the array is allocated with <I>`mi_alloc’</I>.  Modules will generally allocate most resources from their own private resource group, a short-hand for which is to supply a NULL object reference in place of a valid resource group when invoking functions which allocate resources.  This ensures that the corresponding resources will be cleaned up as early as possible in the event of unexpected failure within the module.</P>
+<P ALIGN="JUSTIFY">The module attempts to acquire three additional components from its input description, describing the sampling geometry, colour representation and the scene illuminant power spectral density.  These acquisitions demonstrate the <I>acquire_simple</I> convenience member function, which can be used with the embedded object of any Media Interface component.  The C++ code fragment,</P>
+</FONT><FONT FACE="Courier" SIZE=2><P>{<BR>
+  mi_sampling_geometry_class geometry;<BR>
+  mi_component_class comp, image_comp;<BR>
+  ...<BR>
+  ...<BR>
+  comp = geometry.acquire_simple(who_calls,description,image_comp);<BR>
+  ...<BR>
+}</P>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">is equivalent to the following ANSI C code fragment:</P>
+</FONT><FONT FACE="Courier" SIZE=2><P>{<BR>
+  mi_sampling_geometry_ptr geometry;<BR>
+  mi_component_ptr comp, image_comp;<BR>
+  ...<BR>
+  ...<BR>
+  comp = mi_description__acquire_simple_component(description,who_calls,<BR>
+                                 image_comp,MI_SAMPLING_GEOMETRY__CCLASS);<BR>
+  if (comp == NULL)<BR>
+    geometry = NULL;<BR>
+  else<BR>
+    geometry = (mi_sampling_geometry_ptr)<BR>
+      mi_component__get_object(comp,who_calls);<BR>
+  ...<BR>
+}                                                 </P>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">In both cases, the <I>`mi_description’ </I>object’s <I>`acquire_simple_component’</I> interface function is being exercised, in place of the <I>`acquire_component’ </I>function which we have already seen.  As it turns out, the former function is actually implemented in terms of the much more powerful <I>`acquire_component’ </I>function.  The <I>`acquire_simple_component’</I> function is provided in recognition of the fact that many components have an obvious dependence upon another component.  For example, all components which represent properties of an image are dependent upon the image itself.  These components may have other dependencies; however, their unique key string reflects the primary dependency, usually upon some stream component, by including that component’s key string as a prefix.  The prefix is separated from the rest of the key string by a colon separator.  Simple components are those components whose key string consists of such a prefix and whose suffix is actually the class key itself.  This means that no more than one simple component from the same component class can be used to augment the definition associated with its primary dependency.  Thus, sampling geometry components have a key string consisting of the relevant image stream component’s key string, followed by a colon separator, followed by the string maintained by the <B>MI_SAMPLING_GEOMETRY__CCLASS</B> macro and there can be no more than one sampling geometry component describing any given image stream component.  The <I>`acquire_simple_component’ </I>automatically constructs the component key string by using the so-called base component, which is passed into the function, to determine the key string’s prefix, and appending the relevant component’s class key, with an intervening colon separator.  This turns out to be much more convenient that forcing the module developer to build the compound key strings himself, which can be done with the aid of the <I>`mi_component’</I> object’s <I
+>`extend_key’</I> interface function, if necessary.</P>
+<LI><A NAME="_Ref405037555"><A NAME="_Toc407005541"><B>Processing and Modifying the Description</A></A></LI></OL>
+</OL>
+
+</B><P ALIGN="JUSTIFY">In this section, we consider the second half of the <B><I>illustrative_example</B></I> module’s entry-point function.  In this portion of the code, the module examines the image properties and prepares an <I>`mi_color_map’</I> object, to perform any colour transforms which will be required while processing the image data.</P>
+<P ALIGN="JUSTIFY">Two cases are considered, depending upon whether or not the image has a full set of colour samples at each pixel location.  If not, colour conversion is impossible, without prior interpolation of the image data – a task which this example module is unwilling to undertake.  In this case, the module insists that the input image already have a luminance-chrominance representation and invokes the <I>`is_visual_lcc’</I> interface function of the relevant <I>`mi_color_space’</I> object to find out if this is indeed the case.  If so, it fills in the entries of the <B>plane_associations</B> array to indicate which image planes correspond to luminance and which correspond to chrominance components; in general there may be differing numbers of planes associated with luminance and chrominance components, because the colour components may have been decimated differently.  If the test for a luminance-chominance representation fails, the module terminates with an appropriate error message.  Note that the <I>`error’</I> and <I>`exit’</I> interface functions of the <I>`mi_module’</I> object terminate only that module and, indirectly, any module which depends or becomes dependent upon them in the future.</P>
+<P ALIGN="JUSTIFY">The second case, in which the input does have a full set of colour samples at every pixel location, admits the possibility of colour conversion.  In this case, the module checks first to see if the colour space already conforms to some luminance-chrominance model.  If the existing representation is not suitable, the module creates a suitable colour space and a map for transforming input image samples into the new colour representation.  The few function calls appearing in this section of the code accomplish a great deal more than we can adequately describe here.  The basic idea is as follows.  The module first invokes the input colour space’s <I>`is_visual_rgb’</I> interface function to determine whether or not the input colour space is derived from underlying RGB primaries of some type.  The return value from this function is not used.  Instead, the module exploits a side-effect.  Specifically, if the function succeeds, the actual colorimetric information and tone map will be written into the supplied <I>`mi_colorimetry’</I> and <I>`mi_color_map’</I> objects, so that the new luminance-chrominance representation can be built upon the existing primaries and tone-map.  If the function fails then the input colour representation could be anything at all, including device specific imagery with any number of different colour channels; in this case, the new luminance-chrominance representation will be built upon the standard SRGB primaries and tone-map.</P>
+<P ALIGN="JUSTIFY">The module creates a new colour space component and uses the embedded <I>`mi_color_space’</I> object’s <I>`make_visual_rgb’</I> interface function to initialise it with the appropriate underlying RGB space, attaching the additional RGB to YcrCb map needed to complete the default luminance-chrominance representation.  The original <I>`mi_color_space’</I> object’s <I>`create_conversion_map_simplified’</I> function is then used to generate and optimise an <I>`mi_color_map’</I> object which encapsulates the required colour space conversion operations.  In the process of generating the colour conversion map, the <B>out_ranges</B> array is also filled to reflect the nominal ranges of output samples which will be generated by the colour conversion map.  It is worth noting that the nominal ranges of output image samples are not adjusted to reflect the fact that we will be scaling the chrominance components by the value of <B>factor</B>, in order to modify the saturation of colours.   In fact, scaling both the image samples and the corresponding nominal ranges by the same factor would be an effective no-op.  The significance of image sample values should be judged in relation to their stated nominal ranges.  This means that we could equally well divide the nominal ranges of the chrominance planes by <B>factor</B>, instead of scaling the sample values themselves.  In fact, this would work in practice in many situations; however, rendering modules might not always be willing to perform the processing required to reconcile sample values and nominal ranges.</P>
+<P ALIGN="JUSTIFY">The astute reader will note that we have inserted a call to the module’s `release_components’ interface function, immediately after the description is sent across the module’s output gateway.  The meaning of this function cannot be fully appreciated without first reading the discussion of component ownership in Section III-5.  Suffice it to say that at any given point, each component in a Media Interface environment has a unique owner.  Once our module receives its input description, it is guaranteed to be the unique owner of all components in the description.  Moreover, it becomes the owner of any components which it subsequently creates.  Ownership of all components in the description passed to an output gateway’s <I>`send_description’</I> interface function is transferred to the module which will ultimately receive that description, at the earliest possible convenience; however, it is not difficult to see that the current module may still be left owning one or two components after this has happened.  For example, if a new colour space component is created, the old colour space component is removed from the description and hence not passed along to a downstream module.  Upon termination, all components owned by a module will automatically be cleaned up.  If, however, the module developer knows that he will not be requiring access to any components beyond a certain point, it makes sense to allow the Media Interface system to clean up their resources immediately.  The module’s <I>`release_components’</I> interface function notifies the system that none of the components owned by the module will be required again.  For obvious reasons, the function will almost always appear immediately after the final description has been sent across an output gateway.</P>
+<P ALIGN="JUSTIFY">&nbsp;</P>
+<LI><A NAME="_Toc407005542"></FONT><FONT FACE="Arial Black" SIZE=5>An Example Application Program</A></A></A></A></LI>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">In hunting around for an sufficiently concise example of a Media Interface application program, which also illustrates the most important concepts and techniques, the WIN32 <B><I>`mi_viewer’</B></I> application surfaced as a reasonable selection.  This is a short program which creates a top-level Media Interface environment, dynamically loads, connects and launches a file reading module and a viewing module and then waits for them to closes the environment.  Unfortunately, the example will not be much use to UNIX users as it stands, since the <B><I>view</B></I> module which it expects to find is currently available only for WIN32 platforms.  Nevertheless, the example can easily be modified to work with other modules.  The actual <B><I>`mi_viewer.exe’</B></I> executable which is installed in a WIN32 system’s &quot;Start Menu&quot; under the &quot;Media Interface&quot; program group, is a Windows application, which means that it enters through a Microsoft specific function known as <I>WinMain()</I>, rather than the usual <I>main()</I> function.  To avoid confusion, however, we have modified the source code appearing below to use an ANSI C <I>main()</I> entry-point.</P>
+</FONT><FONT FACE="Courier" SIZE=2><P>#include &lt;mi_std.h&gt;<BR>
+#include &lt;string.h&gt;<BR>
+#include &lt;direct.h&gt;<BR>
+<BR>
+/*****************************************************************************/<BR>
+/* STATIC                  launch_file_reading_module                        */<BR>
+/*****************************************************************************/<BR>
+<BR>
+static void<BR>
+  launch_file_reading_module(mi_module_ptr who_calls, mi_gateway_ptr gate,<BR>
+                             mi_string file_name)<BR>
+{<BR>
+  mi_string instance_name, module_name;<BR>
+  mi_uint instance_length;<BR>
+  mi_module_ptr module;<BR>
+  mi_module_access_ptr access;<BR>
+  mi_output_gateway_list_ptr list;<BR>
+  mi_module_arguments_ptr args;<BR>
+<BR>
+  access = mi_create_module_access(who_calls,NULL);<BR>
+  if (!mi_module_access__load(access,who_calls,"read_file",MI_FALSE,NULL))<BR>
+    mi_module__error(who_calls,who_calls,"Unable to load the standard Media "<BR>
+                     "Interface module, \"read_file\"!");<BR>
+  module_name = mi_module_access__get_name(access,who_calls);<BR>
+  instance_length = strlen(module_name);<BR>
+  if (file_name != NULL)<BR>
+    instance_length += 2+strlen(file_name);<BR>
+  instance_name = (mi_string)<BR>
+    mi_alloc(who_calls,NULL,MI_TYPE_CHAR,instance_length+1);<BR>
+  strcpy(instance_name,module_name);<BR>
+  if (file_name != NULL)<BR>
+    {<BR>
+      strcat(instance_name,"(");<BR>
+      strcat(instance_name,file_name);<BR>
+      strcat(instance_name,")");<BR>
+    }<BR>
+  module =<BR>
+    mi_create_module(who_calls,module_name,instance_name,NULL,NULL,NULL);<BR>
+  mi_free(who_calls,instance_name);<BR>
+  list = mi_create_output_gateway_list(who_calls);<BR>
+  mi_output_gateway_list__add_gateway(list,who_calls,gate);<BR>
+  args = mi_create_module_arguments(who_calls,NULL);<BR>
+  if (file_name != NULL)<BR>
+    {<BR>
+      mi_string argv[2];<BR>
+<BR>
+      argv[0] = "-file_name";<BR>
+      argv[1] = file_name;<BR>
+      mi_module_arguments__from_argc_argv(args,who_calls,2,argv,access,NULL,<BR>
+                                          MI_TRUE);<BR>
+    }<BR>
+  mi_module__launch(module,who_calls,access,MI_MODULE__NEW_THREAD,<BR>
+                    NULL,list,args);<BR>
+  mi_module_arguments__destroy(args,who_calls);<BR>
+  mi_output_gateway_list__destroy(list,who_calls);<BR>
+  mi_module_access__destroy(access,who_calls);<BR>
+}<BR>
+<BR>
+/*****************************************************************************/<BR>
+/*                                  main                                     */<BR>
+/*****************************************************************************/<BR>
+<BR>
+int main(int argc, char *argv[])<BR>
+{<BR>
+  mi_environment_ptr env;<BR>
+  mi_module_ptr manager, old_manager, view_module;<BR>
+  mi_module_access_ptr view_access;<BR>
+  mi_gateway_ptr gate;<BR>
+  mi_input_gateway_list_ptr view_inputs;<BR>
+<BR>
+  env = mi_create_environment(argv[0],NULL,NULL,NULL);<BR>
+  old_manager = NULL;<BR>
+  manager = mi_environment__open_manager(env,NULL);<BR>
+  if (manager != NULL)<BR>
+    {<BR>
+      old_manager = manager;<BR>
+      gate = mi_create_gateway(manager,MI_GATEWAY__CONCURRENT);<BR>
+      launch_file_reading_module(manager,gate,(argc&gt;1)?argv[1]:NULL);<BR>
+      view_inputs = mi_create_input_gateway_list(manager);<BR>
+      mi_input_gateway_list__add_gateway(view_inputs,manager,gate);<BR>
+      view_access = mi_create_module_access(manager,NULL);<BR>
+      if (!mi_module_access__load(view_access,manager,"view",MI_FALSE,NULL))<BR>
+        mi_module__error(manager,manager,"Unable to load the standard "<BR>
+                         "Media Interface \"view\" module!");<BR>
+      view_module =<BR>
+        mi_create_module(manager,"view","mi_viewer",NULL,NULL,NULL);<BR>
+      mi_module__launch(view_module,manager,view_access,<BR>
+                        MI_MODULE__NEW_THREAD,view_inputs,NULL,NULL);<BR>
+      mi_input_gateway_list__destroy(view_inputs,manager);<BR>
+      mi_module_access__destroy(view_access,manager);<BR>
+    }<BR>
+  mi_environment__destroy(env,old_manager);<BR>
+  return(0);<BR>
+}</P>
+<OL>
+
+<LI><A NAME="_Toc407005543"></FONT><FONT FACE="Arial Black" SIZE=4>Creating an Environment</A></A></A></LI>
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">Within the Media Interface framework, the highest level of aggregation is the so-called environment.  The environment manages a collection of interacting modules.  Multiple environments may coexist within the same process, but modules in one Media Interface environment may not directly interact with modules in another.  Environments are discussed more thoroughly in Section III-4; however, for the moment we will keep to the bare essentials.  Every environment has a manager module which is created with the <I>`mi_environment’</I> object and has a small number of special privileges.  Most notably, only the environment manager is able to destroy the <I>`mi_environment’</I> object, thereby closing the environment.  There are two types of environments: top-level environments; and child environments.  Top-level environments are created <I>using `mi_create_environment’</I>, whereas child environments are created by their parent module, with the aid of the <I>`mi_module__create_child_environment’</I> function.   Apart from this, the main difference between top-level environments and child environments is that, in the event that the parent module terminates, all of its child environments will also be terminated, after requesting and waiting for all of their constituent modules to terminate at the earliest possible moment.  We do not dwell on child environments any further at this point, since they are used in essentially the same way as top-level environments.</P>
+<P ALIGN="JUSTIFY">Once an environment has been created, its manager module must be obtained before any useful work can be done.  Before we can describe this, however, it is important to know something about how the exception handling occurs in the Media Interface environment.  Modules can either return normally from their entry-point function or else they can invoke <I>`mi_module__exit’</I>, either directly or indirectly.  In the latter case, the execution stack is unwound to a point inside an internal Media Interface function, from which the module’s entry-point function was originally invoked.  In practice, this is implemented using the standard ANSI C <I>`longjmp’</I> function, but module developers need not be aware of the underlying mechanism.  The environment manager module, however, does not enter through an entry-point function and so it cannot be shielded to the same degree from such implementation details.  It is possible to retrieve the environment manager from a newly created environment by directly invoking the <I>`mi_environment__get_manager’</I> interface function, but this is dangerous, because any call to <I>`mi_module__exit’</I> will not have any knowledge of the correct place to unwind the execution stack in its <I>`longjmp’</I> call.  In order to install a valid jump address and associated information, the <I>`mi_environment__open_manager’</I> macro should be invoked instead.  This macro has the following unusual properties.</P>
+<P ALIGN="JUSTIFY">The <I>`mi_environment__open_manager’</I> macro may return more than once!  It initially returns with a pointer to the environment manager module.  In the event that this module terminates through <I>`mi_module__exit’</I>,  however, the macro will return a second time with a NULL pointer.  The usual response to this will be to destroy the <I>`mi_environment’</I> object immediately; however, it is possible to open a new environment manager in order to continue execution.</P>
+<P ALIGN="JUSTIFY">The <I>`mi_environment__open_manager’</I> macro’s return value should be treated as invalid, once the function in whose context the macro has been invoked returns.  It is for this reason that <I>`mi_environment__open_manager’</I> must be a macro, rather than a function call.  If it turns out to be absolutely necessary to open the environment manager within a function which must return before the environment can be closed, the manager must be reopened in the context of another function within which the manager is needed.</P>
+<P ALIGN="JUSTIFY">Although these peculiarities may take some time to digest, it is almost always sufficient to follow the following format when creating a new Media Interface environment and opening its manager:</P>
+</FONT><FONT FACE="Courier" SIZE=2><P>{<BR>
+  mi_environment_ptr env;<BR>
+  mi_module_ptr manager, old_manager;<BR>
+  ...<BR>
+<BR>
+  old_manager = NULL;<BR>
+  manager = mi_environment__open_manager(env,NULL);<BR>
+  if (manager != NULL)<BR>
+    {<BR>
+      old_manager = manager;<BR>
+      ...<BR>
+      ... /* Use the manager module to do all your work here. */<BR>
+      ...<BR>
+    }<BR>
+  mi_environment__destroy(env,old_manager);<BR>
+  ...<BR>
+}</P>
+<LI><A NAME="_Toc407005544"></FONT><FONT FACE="Arial Black" SIZE=4>Loading and Launching Modules</A></A></A></LI></OL>
+</OL>
+</OL>
+<DIR>
+<DIR>
+<DIR>
+
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="JUSTIFY">The only remaining topic to discuss in relation to our <I>`mi_viewer’</I> application example is the typical steps involved in loading and launching new modules.  The process of launching a new module may be summarised in two seemingly trivial steps, as follows:</P><DIR>
+
+<P ALIGN="JUSTIFY">Create a new <I>`mi_module’</I> object.  The object is not associated with any piece of executable code until it is launched.</P>
+<P ALIGN="JUSTIFY">Launch the new module, by invoking its <I>`mi_module__launch’</I> interface function.</P></DIR>
+
+<P ALIGN="JUSTIFY">Before this second step can be completed, however, the following information must be collected.</P><DIR>
+
+<P ALIGN="JUSTIFY">An <I>`mi_module_access’</I> object must be created and initialised to refer to an appropriate piece of executable code.  This is usually done by dynamically loading a module library with the aid of the <I>`mi_module_access__load’</I> interface function.   Alternatively, the newly created `mi_module_access’ object can be passed directly into some module’s access function.  Of course, the latter approach can generally be taken only if the module is statically linked into the application.</P>
+<P ALIGN="JUSTIFY">If the module requires any input gateways, an <I>`mi_input_gateway_list’</I> object must be created and initialised<I> </I>with appropriately created <I>`mi_gateway’</I> objects.  Similarly, if the module requires any output gateways, an <I>`mi_output_gateway_list’</I> object must be created and initialised with appropriately created <I>`mi_gateway’</I> objects.</P>
+<P ALIGN="JUSTIFY">If the module requires any arguments, an <I>`mi_module_arguments’</I> object must be created and initialised with a collection of arguments which conform to the argument specifications found in the <I>`mi_module_access’</I> object obtained in Step 1.  This is usually best done indirectly by invoking such functions as `<I>mi_module_arguments__from_string’</I>.</P></DIR>
+
+<P ALIGN="JUSTIFY">Modules may be launched in the same thread of execution or in a different thread of execution to the launching module.  In the former case, the module call to <I>`mi_module__launch’</I> will not return until the module terminates either normally or through <I>`mi_module__exit’</I>.  In the latter case, the launch call returns immediately.  As a result, most modules will usually be launched in their own thread of execution.</P></DIR>
+</DIR>
+</DIR>
+</FONT></BODY>
+</HTML>

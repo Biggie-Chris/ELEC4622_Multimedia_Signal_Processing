@@ -1,0 +1,122 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>Media Interface</TITLE>
+</HEAD>
+<BODY LINK="#0000ff" VLINK="#800080">
+
+<B><FONT FACE="Arial Black" SIZE=5><P>The Media Interface System</P>
+</B></FONT><FONT FACE="Arial" SIZE=4><P>A Framework for Collaborative Development of Complex Multi-Media Processing Systems</P>
+</FONT><FONT FACE="Arial">
+
+</FONT><FONT FACE="Arial" SIZE=3><P ALIGN="RIGHT">
+<B>by David Taubman</B></P>
+
+<P>
+Note: If you want to print the Media Interface manual, it is best to print
+directly from "mi_manual.ps" or from the Office97 Word document, "mi_manual.doc",
+both of which may be found in "doc\manual" under the Media Interface home
+directory.
+</P>
+
+<br><P ALIGN="JUSTIFY"><B><FONT SIZE=3>Contents</FONT></B></P>
+</FONT><B><FONT SIZE=2><br>Preface&#9;</B></FONT><A HREF="Preface.html#_Toc408647713" target="active">*</A>
+<br>
+<B><FONT SIZE=2><br>I.&#9;Overview&#9;</B></FONT><A HREF="Overview.html#_Toc408647714" target="active">*</A>
+<DIR>
+<FONT SIZE=2>I-1&#9;Intended Applications&#9;</FONT><A HREF="Overview.html#_Toc408647715" target="active">*</A>
+<FONT SIZE=2><br>I-2&#9;Why Use the Media Interface&#9;</FONT><A HREF="Overview.html#_Toc408647716" target="active">*</A>
+<FONT SIZE=2><br>I-3&#9;Towards Environment Independence&#9;</FONT><A HREF="Overview.html#_Toc408647717" target="active">*</A>
+  <DIR>
+  <I><FONT SIZE=2>I-3.1&#9;Dynamic Object Model&#9;</I></FONT><A HREF="Overview.html#_Toc408647718" target="active">*</A>
+  <I><FONT SIZE=2><br>I-3.2&#9;Description-Based Processing&#9;</I></FONT><A HREF="Overview.html#_Toc408647719" target="active">*</A>
+  <I><FONT SIZE=2><br>I-3.3&#9;Resource Optimization&#9;</I></FONT><A HREF="Overview.html#_Toc408647720" target="active">*</A>
+  <I><FONT SIZE=2><br>I-3.4&#9;Abstracted System-Level Interfaces&#9;</I></FONT><A HREF="Overview.html#_Toc408647721" target="active">*</A>
+  </DIR>
+<FONT SIZE=2><br>I-4&#9;Module Interactions&#9;</FONT><A HREF="Overview.html#_Toc408647722" target="active">*</A>
+  <DIR>
+  <I><FONT SIZE=2>I-4.1&#9;Gateways and Descriptions&#9;</I></FONT><A HREF="Overview.html#_Toc408647723" target="active">*</A>
+  <I><FONT SIZE=2><br>I-4.2&#9;Streams&#9;</I></FONT><A HREF="Overview.html#_Toc408647724" target="active">*</A>
+  <I><FONT SIZE=2><br>I-4.3&#9;Launching Modules&#9;</I></FONT><A HREF="Overview.html#_Toc408647725" target="active">*</A>
+  </DIR>
+<FONT SIZE=2><br>I-5&#9;Comparison and Interaction with Other Systems&#9;</FONT><A HREF="Overview.html#_Toc408647726" target="active">*</A>
+  <DIR>
+  <I><FONT SIZE=2>I-5.1&#9;CORBA, COM and OrbLite&#9;</I></FONT><A HREF="Overview.html#_Toc408647727" target="active">*</A>
+  <I><FONT SIZE=2><br>I-5.2&#9;Microsoft’s Active Move&#9;</I></FONT><A HREF="Overview.html#_Toc408647728" target="active">*</A>
+  <I><FONT SIZE=2><br>I-5.3&#9;Various Image Processing Frameworks&#9;</I></FONT><A HREF="Overview.html#_Toc408647729" target="active">*</A>
+  </DIR>
+</DIR>
+
+<B><FONT SIZE=2><br>II.&#9;Getting Started&#9;</B></FONT><A HREF="Getting_Started.html#_Toc408646695" target="active">*</A>
+<DIR>
+<FONT SIZE=2>II-1&#9;Installation&#9;</FONT><A HREF="Getting_Started.html#_Toc408646696" target="active">*</A>
+  <DIR>
+  <I><FONT SIZE=2>II-1.1&#9;Installation on a UNIX System&#9;</I></FONT><A HREF="Getting_Started.html#_Toc408646697" target="active">*</A>
+  <I><FONT SIZE=2><br>II-1.2&#9;Installation on WIN32 Platforms&#9;</I></FONT><A HREF="Getting_Started.html#_Toc408646698" target="active">*</A>
+  </DIR>
+<FONT SIZE=2><br>II-2&#9;User-Space Tools&#9;</FONT><A HREF="Getting_Started.html#_Toc408646699" target="active">*</A>
+  <DIR>
+  <I><FONT SIZE=2>II-2.1&#9;Finding and Using Media Interface Modules&#9;</I></FONT><A HREF="Getting_Started.html#_Toc408646700" target="active">*</A>
+    <DIR>
+    <FONT SIZE=2>II-2.1.1&#9;Modules Supplied with the Media Interface Package&#9;</FONT><A HREF="Getting_Started.html#_Toc407005516" target="active">*</A>
+    <FONT SIZE=2><br>II-2.1.2&#9;Using <I>mi_find</I>&#9;</FONT><A HREF="Getting_Started.html#_Toc407005517" target="active">*</A>
+    </DIR>
+  <I><FONT SIZE=2><br>II-2.2&#9;Constructing Processing Pipelines&#9;</I></FONT><A HREF="Getting_Started.html#_Toc407005518" target="active">*</A>
+  <I><FONT SIZE=2><br>II-2.3&#9;Configuring Processing Modules Interactively&#9;</I></FONT><A HREF="Getting_Started.html#_Toc407005519" target="active">*</A>
+  </DIR>
+<FONT SIZE=2><br>II-3&#9;A Simple Example Module&#9;</FONT><A HREF="Getting_Started.html#_Toc407005520" target="active">*</A>
+  <DIR>
+  <I><FONT SIZE=2>II-3.1&#9;Exporting the Access Function&#9;</I></FONT><A HREF="Getting_Started.html#_Toc407005521" target="active">*</A>
+  <I><FONT SIZE=2><br>II-3.2&#9;Implementing the Access Function&#9;</I></FONT><A HREF="Getting_Started.html#_Toc407005522" target="active">*</A>
+  <I><FONT SIZE=2><br>II-3.3&#9;Implementing the Entry-Point Function&#9;</I></FONT><A HREF="Getting_Started.html#_Toc407005523" target="active">*</A>
+  </DIR>
+<FONT SIZE=2><br>II-4&#9;Programming Issues&#9;</FONT><A HREF="Getting_Started.html#_Toc407005524" target="active">*</A>
+  <DIR>
+  <I><FONT SIZE=2>II-4.1&#9;Organising and Compiling Modules&#9;</I></FONT><A HREF="Getting_Started.html#_Toc407005525" target="active">*</A>
+    <DIR>
+    <FONT SIZE=2>II-4.1.1&#9;Note on Static and Global Variables&#9;</FONT><A HREF="Getting_Started.html#_Toc407005526" target="active">*</A>
+    <FONT SIZE=2><br>II-4.1.2&#9;Building Modules on UNIX Platforms&#9;</FONT><A HREF="Getting_Started.html#_Toc407005527" target="active">*</A>
+    <FONT SIZE=2><br>II-4.1.3&#9;Building Modules on WIN32 Platforms&#9;</FONT><A HREF="Getting_Started.html#_Toc407005528" target="active">*</A>
+    </DIR>
+  <I><FONT SIZE=2><br>II-4.2&#9;Debugging&#9;</I></FONT><A HREF="Getting_Started.html#_Toc407005529" target="active">*</A>
+    <DIR>
+    <FONT SIZE=2>II-4.2.1&#9;Run-Time Verification&#9;</FONT><A HREF="Getting_Started.html#_Toc407005530" target="active">*</A>
+    <FONT SIZE=2><br>II-4.2.2&#9;Compilation Directives&#9;</FONT><A HREF="Getting_Started.html#_Toc407005531" target="active">*</A>
+    <FONT SIZE=2><br>II-4.2.3&#9;Exit Monitors&#9;</FONT><A HREF="Getting_Started.html#_Toc407005532" target="active">*</A>
+    <FONT SIZE=2><br>II-4.2.4&#9;Heap Integrity Verification&#9;</FONT><A HREF="Getting_Started.html#_Toc407005533" target="active">*</A>
+    <FONT SIZE=2><br>II-4.2.5&#9;Tracing Memory Leaks&#9;</FONT><A HREF="Getting_Started.html#_Toc407005534" target="active">*</A>
+    </DIR>
+  <I><FONT SIZE=2><br>II-4.3&#9;Distributing your Modules and Applications&#9;</I></FONT><A HREF="Getting_Started.html#_Toc407005535" target="active">*</A>
+  </DIR>
+<FONT SIZE=2><br>II-5&#9;A More Interesting Example Module&#9;</FONT><A HREF="Getting_Started.html#_Toc407005536" target="active">*</A>
+  <DIR>
+  <I><FONT SIZE=2>II-5.1&#9;Differences between ANSI C and C++&#9;</I></FONT><A HREF="Getting_Started.html#_Toc407005537" target="active">*</A>
+  <I><FONT SIZE=2><br>II-5.2&#9;Source Code&#9;</I></FONT><A HREF="Getting_Started.html#_Toc407005538" target="active">*</A>
+    <DIR>
+    <FONT SIZE=2>II-5.2.1&#9;Exporting Argument Information&#9;</FONT><A HREF="Getting_Started.html#_Toc407005539" target="active">*</A>
+    <FONT SIZE=2><br>II-5.2.2&#9;Collecting Arguments and Image Properties&#9;</FONT><A HREF="Getting_Started.html#_Toc407005540" target="active">*</A>
+    <FONT SIZE=2><br>II-5.2.3&#9;Processing and Modifying the Description&#9;</FONT><A HREF="Getting_Started.html#_Toc407005541" target="active">*</A>
+    </DIR>
+  </DIR>
+<FONT SIZE=2><br>II-6&#9;An Example Application Program&#9;</FONT><A HREF="Getting_Started.html#_Toc407005542" target="active">*</A>
+  <DIR>
+  <I><FONT SIZE=2>II-6.1&#9;Creating an Environment&#9;</I></FONT><A HREF="Getting_Started.html#_Toc407005543" target="active">*</A>
+  <I><FONT SIZE=2><br>II-6.2&#9;Loading and Launching Modules&#9;</I></FONT><A HREF="Getting_Started.html#_Toc407005544" target="active">*</A>
+  </DIR>
+</DIR>
+
+<B><FONT SIZE=2><br>III.&#9;Fundamental Concepts&#9;</B></FONT><A HREF="Fundamental_Concepts.html#_Toc407005545" target="active">*</A>
+<DIR>
+<FONT SIZE=2>III-1&#9;Objects and Interfaces&#9;</FONT><A HREF="Fundamental_Concepts.html#_Toc407005546" target="active">*</A>
+<FONT SIZE=2><br>III-2&#9;Modules&#9;</FONT><A HREF="Fundamental_Concepts.html#_Toc407005547" target="active">*</A>
+<FONT SIZE=2><br>III-3&#9;Resource Groups&#9;</FONT><A HREF="Fundamental_Concepts.html#_Toc407005548" target="active">*</A>
+<FONT SIZE=2><br>III-4&#9;Environments&#9;</FONT><A HREF="Fundamental_Concepts.html#_Toc407005549" target="active">*</A>
+<FONT SIZE=2><br>III-5&#9;Descriptions and Components&#9;</FONT><A HREF="Fundamental_Concepts.html#_Toc407005550" target="active">*</A>
+<FONT SIZE=2><br>III-6&#9;Streams&#9;</FONT><A HREF="Fundamental_Concepts.html#_Toc407005551" target="active">*</A>
+<FONT SIZE=2><br>III-7&#9;Synchronisation&#9;</FONT><A HREF="Fundamental_Concepts.html#_Toc407005552" target="active">*</A>
+<FONT SIZE=2><br>III-8&#9;Externalisation and MFLEX&#9;</FONT><A HREF="Fundamental_Concepts.html#_Toc407005553" target="active">*</A>
+<FONT FACE="Arial" SIZE=6><P ALIGN="RIGHT">&nbsp;</P>
+</DIR>
+</BODY>
+</HTML>

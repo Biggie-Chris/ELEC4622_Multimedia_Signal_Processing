@@ -1,0 +1,13 @@
+>COLOR<
+visual(0.3127 0.3290) # SRGB whitepoint (D65)
+  0.64 0.33           # Chromaticity of SRGB Red
+  0.30 0.60           # Chromaticity of SRGB Green
+  0.15 0.06           # Chromaticity of SRGB Blue
+(0.0 1.0)           # R relative range
+(0.0 1.0)           # G relative range
+(0.0 1.0)           # B relative range
+bind(3)
+1
+2
+3
+
