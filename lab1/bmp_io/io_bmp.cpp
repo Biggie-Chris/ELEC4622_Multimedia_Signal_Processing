@@ -6,6 +6,9 @@
 // Copyright 2007, David Taubman, The University of New South Wales (UNSW)
 /*****************************************************************************/
 
+#define _CRT_SECURE_NO_WARNINGS
+#define _CRT_SECURE_NO_DEPRECATE
+
 #include <string.h>  // Import `memset' function
 #include "io_bmp.h"
 
